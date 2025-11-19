@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>网络 on UZPENG</title>
+    <link>http://localhost:1313/tags/%E7%BD%91%E7%BB%9C/</link>
+    <description>Recent content in 网络 on UZPENG</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <copyright>© 2025 UZPENG</copyright>
+    <lastBuildDate>Tue, 06 Mar 2018 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/%E7%BD%91%E7%BB%9C/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>postfix&#43;dovecot搭建自己的邮件服务器</title>
+      <link>http://localhost:1313/posts/mail/</link>
+      <pubDate>Tue, 06 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/mail/</guid>
+      <description>&lt;h2 class=&#34;relative group&#34;&gt;前言
+    &lt;div id=&#34;前言&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;text-primary-300 dark:text-neutral-700 !no-underline&#34; href=&#34;#%e5%89%8d%e8%a8%80&#34; aria-label=&#34;&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;
+    
+&lt;/h2&gt;
+&lt;p&gt;我对于邮箱理解，在很长一段时间里，都是qq邮箱、163邮箱、126邮箱等等的各种第三方邮箱。这些邮箱都是注册一下，然后从web页面登陆进去，就可以收发邮件了。后来上了计算机网络这门课，学习到了有关于邮件的一些协议比如SMTP、POP3、IMAP。但是，当时也只是知道有这几种协议，也没有去实践过，现在想起来真的觉得计算机各方面知识自己都实践得太少了。而且最近在学习java web开发，想着实现一个邮件发送验证码的功能，同时又想拥有一个自己的域名邮箱，所以就决定配置一下邮件服务器。&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>scrapy&#43;selenium&#43;headless-chrome爬虫总结</title>
+      <link>http://localhost:1313/posts/scrapy/</link>
+      <pubDate>Mon, 05 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/scrapy/</guid>
+      <description>&lt;h2 class=&#34;relative group&#34;&gt;前言
+    &lt;div id=&#34;前言&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;text-primary-300 dark:text-neutral-700 !no-underline&#34; href=&#34;#%e5%89%8d%e8%a8%80&#34; aria-label=&#34;&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;
+    
+&lt;/h2&gt;
+&lt;p&gt;久闻&lt;code&gt;scrapy&lt;/code&gt;大名，一直想找机会了解一下这框架，在兴趣的驱动下学习了一下简单的&lt;code&gt;scrapy&lt;/code&gt;的使用。虽然上次用java做的一个爬虫，但是后来觉得也算不上什么爬虫吧，只能算模拟&lt;code&gt;http&lt;/code&gt;请求和&lt;code&gt;http&lt;/code&gt;响应的处理、&lt;code&gt;json&lt;/code&gt;的序列化和反序列化、excel文件的读取和写入而已，很多爬虫需要处理的东西也并没有处理。
+但是&lt;code&gt;scrapy&lt;/code&gt;就不一样了，作为一个成熟的爬虫框架，scrapy有以下几点优势。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;内嵌了CSS选择器和XPath解析器用于提取HTML/XML的信息。&lt;/li&gt;
+&lt;li&gt;提供了一个shell控制台用于测试css和xpath的表达式。&lt;/li&gt;
+&lt;li&gt;良好的架构设计：middleware、pipeline。&lt;/li&gt;
+&lt;li&gt;成熟的请求调度器。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;备注: 以上特性来自于&lt;a
+  href=&#34;https://doc.scrapy.org/en/latest/intro/overview.html&#34;
+    target=&#34;_blank&#34;
+  &gt;scrapy官方文档&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;scrapy还有很多其他的特性，我在实践中比较常用的就是上面这几项。&lt;/p&gt;
+&lt;p&gt;另外，上次爬取动态页面的时候，采取的策略是分析AJAX请求的URL然后自己构造请求。这种方法比较麻烦，需要自己去分析请求，这次我们采用selenium+headless-chrome，以浏览器自动化的方式爬取数据。&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>爬虫实践--淘数据网站的数据爬取和存储</title>
+      <link>http://localhost:1313/posts/crawl/</link>
+      <pubDate>Tue, 26 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/crawl/</guid>
+      <description>&lt;h2 class=&#34;relative group&#34;&gt;背景
+    &lt;div id=&#34;背景&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;text-primary-300 dark:text-neutral-700 !no-underline&#34; href=&#34;#%e8%83%8c%e6%99%af&#34; aria-label=&#34;&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;
+    
+&lt;/h2&gt;
+&lt;p&gt;最近女朋友需要利用&lt;code&gt;tableau&lt;/code&gt;来做数据可视化的作业，要做数据可视化，那首先可定得要有数据。她们打算用八爪鱼等爬虫软件来抓取数据，结果没成功，原因不明。然后跟我吐槽了一下这个事情，刚好我最近也要学爬虫，本着项目驱动学习的理念，就直接选择了这个项目来练手了。&lt;/p&gt;
+
+&lt;h2 class=&#34;relative group&#34;&gt;准备工作
+    &lt;div id=&#34;准备工作&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;text-primary-300 dark:text-neutral-700 !no-underline&#34; href=&#34;#%e5%87%86%e5%a4%87%e5%b7%a5%e4%bd%9c&#34; aria-label=&#34;&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;
+    
+&lt;/h2&gt;
+&lt;p&gt;编程环境：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;IntelliJ IDEA 2017.1.5
+Build #IU-171.4694.70, built on July 4, 2017
+Licensed to weapon
+JRE: 1.8.0_112-release-736-b21 amd64
+JVM: OpenJDK 64-Bit Server VM by JetBrains s.r.o
+Windows 10 10.0
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;编程环境如上所示，因为我Java语言比较熟悉，所以编程语言选择了Java。虽然Java做爬虫语法上面比较累赘，但是Python还没学会，就凑合着用Java写了。&lt;/p&gt;</description>
+      
+    </item>
+    
+  </channel>
+</rss>

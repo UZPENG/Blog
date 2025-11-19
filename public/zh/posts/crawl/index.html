@@ -1,0 +1,1349 @@
+<!doctype html>
+<html
+  lang="zh"
+  dir="ltr"
+  class="scroll-smooth"
+  data-default-appearance="light"
+  data-auto-appearance="true"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+  
+    <meta http-equiv="content-language" content="zh">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color">
+
+  
+  
+    <title>爬虫实践--淘数据网站的数据爬取和存储 &middot; UZPENG</title>
+    <meta name="title" content="爬虫实践--淘数据网站的数据爬取和存储 &middot; UZPENG">
+  
+
+  
+  
+    <meta name="description" content="互利互惠，合作共赢 / Help each others, Win together.">
+  
+  
+    <meta name="keywords" content="网络,">
+  
+  
+  
+  <link rel="canonical" href="http://localhost:1313/zh/posts/crawl/">
+  
+
+  
+  
+    <meta name="author" content="UZPENG">
+  
+  
+    
+      
+        
+          <link href="https://github.com/uzpeng" rel="me">
+        
+      
+    
+  
+
+  
+  <meta property="og:url" content="http://localhost:1313/zh/posts/crawl/">
+  <meta property="og:site_name" content="UZPENG">
+  <meta property="og:title" content="爬虫实践--淘数据网站的数据爬取和存储">
+  <meta property="og:description" content="背景#最近女朋友需要利用tableau来做数据可视化的作业，要做数据可视化，那首先可定得要有数据。她们打算用八爪鱼等爬虫软件来抓取数据，结果没成功，原因不明。然后跟我吐槽了一下这个事情，刚好我最近也要学爬虫，本着项目驱动学习的理念，就直接选择了这个项目来练手了。
+准备工作#编程环境：
+IntelliJ IDEA 2017.1.5Build #IU-171.4694.70, built on July 4, 2017Licensed to weaponJRE: 1.8.0_112-release-736-b21 amd64JVM: OpenJDK 64-Bit Server VM by JetBrains s.r.oWindows 10 10.0 编程环境如上所示，因为我Java语言比较熟悉，所以编程语言选择了Java。虽然Java做爬虫语法上面比较累赘，但是Python还没学会，就凑合着用Java写了。">
+  <meta property="og:locale" content="zh">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="zh">
+    <meta property="article:published_time" content="2017-12-26T19:36:59+00:00">
+    <meta property="article:modified_time" content="2017-12-26T19:36:59+00:00">
+    <meta property="article:tag" content="网络">
+
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="爬虫实践--淘数据网站的数据爬取和存储">
+  <meta name="twitter:description" content="背景#最近女朋友需要利用tableau来做数据可视化的作业，要做数据可视化，那首先可定得要有数据。她们打算用八爪鱼等爬虫软件来抓取数据，结果没成功，原因不明。然后跟我吐槽了一下这个事情，刚好我最近也要学爬虫，本着项目驱动学习的理念，就直接选择了这个项目来练手了。
+准备工作#编程环境：
+IntelliJ IDEA 2017.1.5Build #IU-171.4694.70, built on July 4, 2017Licensed to weaponJRE: 1.8.0_112-release-736-b21 amd64JVM: OpenJDK 64-Bit Server VM by JetBrains s.r.oWindows 10 10.0 编程环境如上所示，因为我Java语言比较熟悉，所以编程语言选择了Java。虽然Java做爬虫语法上面比较累赘，但是Python还没学会，就凑合着用Java写了。">
+
+  
+  
+  
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+  
+    
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/css/main.bundle.min.1aed5ce31a0c8bf6dd0e0a3939d5743040c83d29d638598ab32da024343ccbe0f0bb85091e952faeff56d5d43fab8775dbaf10c75c7f34d8fe9557186616569c.css"
+    integrity="sha512-Gu1c4xoMi/bdDgo5OdV0MEDIPSnWOFmKsy2gJDQ8y&#43;Dwu4UJHpUvrv9W1dQ/q4d1268Qx1x/NNj&#43;lVcYZhZWnA==">
+
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/appearance.min.6f41174b3a05b680820fe08cadbfa5fb7a7ca347b76a0955cdc68b9d8aca1ce24f0547e138cea33bcc7904d551a90afcb1cc7f2d9fe8557075d501419046c08c.js"
+    integrity="sha512-b0EXSzoFtoCCD&#43;CMrb&#43;l&#43;3p8o0e3aglVzcaLnYrKHOJPBUfhOM6jO8x5BNVRqQr8scx/LZ/oVXB11QFBkEbAjA=="></script>
+  
+  
+  
+  
+  
+  
+    
+    <script src="/lib/zoom/zoom.min.umd.b4b722fcb5d42f34f52b30a92f3521b69f403ca9d96d0d6179eb537cb870f5d83fdf1fe836688d95d5c99fefbda4170487711006e56051fa67ea00da10521721.js" integrity="sha512-tLci/LXULzT1KzCpLzUhtp9APKnZbQ1heetTfLhw9dg/3x/oNmiNldXJn&#43;&#43;9pBcEh3EQBuVgUfpn6gDaEFIXIQ=="></script>
+  
+
+  
+  
+  
+    
+  
+  
+    
+  
+  
+    
+  
+  
+  
+  
+  
+  
+    
+    <script
+      defer
+      type="text/javascript"
+      id="script-bundle"
+      src="/js/main.bundle.min.f16cf48651044bc66625c8008eb5605cc702530530daa081ce7e495e50adf778bef6cd0747382983caf5e5cc745c819dd7a969e17e545119dff14346f4fcb977.js"
+      integrity="sha512-8Wz0hlEES8ZmJcgAjrVgXMcCUwUw2qCBzn5JXlCt93i&#43;9s0HRzgpg8r15cx0XIGd16lp4X5UURnf8UNG9Py5dw=="
+      data-copy=""
+      data-copied=""></script>
+  
+
+  
+  
+
+<script src="/lib/jquery/jquery.slim.min.03cb160e3cfdb2667a2e2c80d283bebcf63ff8bbc4b629c9ab2babf6fae1d0c07ad470edae783efa4fabda2ac01c58d60e63b98b3c336be8208460f08f4354f5.js" integrity="sha512-A8sWDjz9smZ6LiyA0oO&#43;vPY/&#43;LvEtinJqyur9vrh0MB61HDtrng&#43;&#43;k&#43;r2irAHFjWDmO5izwza&#43;gghGDwj0NU9Q=="></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+  
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+  
+
+  
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "Zhs",
+    "name": "爬虫实践--淘数据网站的数据爬取和存储",
+    "headline": "爬虫实践--淘数据网站的数据爬取和存储",
+    
+    "abstract": "\u003ch2 class=\u0022relative group\u0022\u003e背景\r\n    \u003cdiv id=\u0022背景\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\r\n    \r\n    \u003cspan\r\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none\u0022\u003e\r\n        \u003ca class=\u0022text-primary-300 dark:text-neutral-700 !no-underline\u0022 href=\u0022#%e8%83%8c%e6%99%af\u0022 aria-label=\u0022\u0022\u003e#\u003c\/a\u003e\r\n    \u003c\/span\u003e\r\n    \r\n\u003c\/h2\u003e\r\n\u003cp\u003e最近女朋友需要利用\u003ccode\u003etableau\u003c\/code\u003e来做数据可视化的作业，要做数据可视化，那首先可定得要有数据。她们打算用八爪鱼等爬虫软件来抓取数据，结果没成功，原因不明。然后跟我吐槽了一下这个事情，刚好我最近也要学爬虫，本着项目驱动学习的理念，就直接选择了这个项目来练手了。\u003c\/p\u003e\n\r\n\u003ch2 class=\u0022relative group\u0022\u003e准备工作\r\n    \u003cdiv id=\u0022准备工作\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\r\n    \r\n    \u003cspan\r\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none\u0022\u003e\r\n        \u003ca class=\u0022text-primary-300 dark:text-neutral-700 !no-underline\u0022 href=\u0022#%e5%87%86%e5%a4%87%e5%b7%a5%e4%bd%9c\u0022 aria-label=\u0022\u0022\u003e#\u003c\/a\u003e\r\n    \u003c\/span\u003e\r\n    \r\n\u003c\/h2\u003e\r\n\u003cp\u003e编程环境：\u003c\/p\u003e\n\u003cpre tabindex=\u00220\u0022\u003e\u003ccode\u003eIntelliJ IDEA 2017.1.5\r\nBuild #IU-171.4694.70, built on July 4, 2017\r\nLicensed to weapon\r\nJRE: 1.8.0_112-release-736-b21 amd64\r\nJVM: OpenJDK 64-Bit Server VM by JetBrains s.r.o\r\nWindows 10 10.0\n\u003c\/code\u003e\u003c\/pre\u003e\u003cp\u003e编程环境如上所示，因为我Java语言比较熟悉，所以编程语言选择了Java。虽然Java做爬虫语法上面比较累赘，但是Python还没学会，就凑合着用Java写了。\u003c\/p\u003e",
+    "inLanguage": "zh",
+    "url" : "http:\/\/localhost:1313\/zh\/posts\/crawl\/",
+    "author" : {
+      "@type": "Person",
+      "name": "UZPENG"
+    },
+    "copyrightYear": "2017",
+    "dateCreated": "2017-12-26T19:36:59\u002b00:00",
+    "datePublished": "2017-12-26T19:36:59\u002b00:00",
+    
+    "dateModified": "2017-12-26T19:36:59\u002b00:00",
+    
+    "keywords": ["网络"],
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "389"
+  }]
+  </script>
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+</head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <body class="flex flex-col h-screen m-auto leading-7 max-w-7xl px-6 sm:px-14 md:px-24 lg:px-32 text-lg bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600">
+    <div id="the-top" class="absolute flex self-center">
+      <a
+        class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+        href="#main-content">
+        <span class="font-bold text-primary-600 pe-2 dark:text-primary-400">&darr;</span>
+        
+      </a>
+    </div>
+    
+    
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div
+  class="main-menu flex items-center justify-between py-6 md:justify-start gap-x-3 pt-[2px] pr-2 md:pr-4 pb-[3px] pl-0">
+  
+  
+
+  <div class="flex flex-1 items-center justify-between">
+    <nav class="flex space-x-3">
+      
+        <a href="/" class="text-base font-medium">
+          UZPENG
+        </a>
+      
+    </nav>
+    
+  <nav class="hidden md:flex items-center gap-x-5 md:ml-12 h-12">
+    
+
+    
+
+    
+
+    
+      <button
+        id="search-button"
+        aria-label="Search"
+        class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+        title="">
+        <span class="relative block icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+      </button>
+    
+
+    
+      <div class=" flex items-center">
+        <button
+          id="appearance-switcher"
+          aria-label="Dark mode switcher"
+          type="button"
+          class="text-base hover:text-primary-600 dark:hover:text-primary-400">
+          <div class="flex items-center justify-center dark:hidden">
+            <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+</span>
+          </div>
+          <div class="items-center justify-center hidden dark:flex">
+            <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+</span>
+          </div>
+        </button>
+      </div>
+    
+  </nav>
+
+    
+  <div class="flex md:hidden items-center gap-x-5 md:ml-12 h-12">
+    <span></span>
+
+    
+
+    
+
+    
+      <button
+        id="search-button-mobile"
+        aria-label="Search"
+        class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+        title="">
+        <span class="relative block icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+      </button>
+    
+
+    
+      <button
+        id="appearance-switcher-mobile"
+        aria-label="Dark mode switcher"
+        type="button"
+        class="text-base hover:text-primary-600 dark:hover:text-primary-400 me-1">
+        <div class="flex items-center justify-center dark:hidden">
+          <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+</span>
+        </div>
+        <div class="items-center justify-center hidden dark:flex">
+          <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+</span>
+        </div>
+      </button>
+    
+  </div>
+
+  </div>
+  
+  <div class="-my-2 md:hidden">
+    <div id="menu-button" class="block">
+      
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+    
+    <div class="relative flex flex-col grow">
+      <main id="main-content" class="grow">
+        
+  
+  <article>
+    
+    
+      
+      
+      
+      
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+
+
+  
+  
+
+
+
+
+  
+
+
+
+
+      
+    
+
+    
+    <header id="single_header" class="mt-5 max-w-prose">
+      
+        <ol class="text-sm text-neutral-500 dark:text-neutral-400 print:hidden">
+  
+  
+    
+  
+    
+  
+  <li class="hidden">
+    <a class="hover:underline decoration-neutral-300 dark:underline-neutral-600" href="/"
+      ></a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline">
+    <a class="hover:underline decoration-neutral-300 dark:underline-neutral-600" href="/zh/"
+      >Zhs</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="hidden">
+    <a class="hover:underline decoration-neutral-300 dark:underline-neutral-600" href="/zh/posts/crawl/"
+      >爬虫实践--淘数据网站的数据爬取和存储</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+</ol>
+
+
+      
+      <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+        爬虫实践--淘数据网站的数据爬取和存储
+      </h1>
+      <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+        
+
+
+
+
+
+  
+  
+
+
+
+  
+
+  
+  
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="2017-12-26T19:36:59&#43;00:00"></time><span class="px-2 text-primary-500">&middot;</span><span></span><span class="px-2 text-primary-500">&middot;</span><span title=""></span>
+    
+
+    
+    
+  </div>
+
+  
+
+  
+  
+
+  
+  
+
+
+
+      </div>
+      
+        
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+    
+    
+<div class="flex author">
+  
+    
+    
+      
+    
+    
+      
+      
+        
+      
+      <img
+        class="!mt-0 !mb-0 h-24 w-24 rounded-full me-4"
+        width="96"
+        height="96"
+        alt="UZPENG"
+        src="/img/avatar_hu_890256b0c511d558.png"
+        data-zoom-src="/img/avatar.png">
+    
+  
+  <div class="place-self-center">
+    
+      <div class="text-[0.6rem] uppercase leading-3 text-neutral-500 dark:text-neutral-400">
+        
+      </div>
+      <div class="font-semibold leading-6 text-neutral-800 dark:text-neutral-300">
+        UZPENG
+      </div>
+    
+    
+    <div class="text-2xl sm:text-lg">
+  <div class="flex flex-wrap text-neutral-400 dark:text-neutral-500">
+    
+      
+        <a
+          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
+          href="https://github.com/uzpeng"
+          target="_blank"
+          aria-label="Github"
+          title="Github"
+          rel="me noopener noreferrer"
+          ><span class="inline-block align-text-bottom"><span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+</span></span></a
+        >
+      
+    
+  </div>
+
+</div>
+  </div>
+</div>
+
+  
+
+  
+
+  
+    <div class="mb-5"></div>
+  
+
+      
+    </header>
+
+    
+    <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+      
+      
+      
+      
+      
+        <div class="order-first lg:ml-auto px-0 lg:order-last lg:ps-8 lg:max-w-2xs">
+          <div class="toc ps-5 print:hidden lg:sticky lg:top-10">
+            
+              <details
+  open
+  id="TOCView"
+  class="toc-right mt-0 overflow-y-auto overscroll-contain scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600 rounded-lg -ms-5 ps-5 pe-2 hidden lg:block">
+  <summary
+    class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 -ms-5 ps-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    
+  </summary>
+  <div
+    class="min-w-[220px] py-2 border-dotted border-s-1 -ms-5 ps-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#背景">背景</a></li>
+    <li><a href="#准备工作">准备工作</a></li>
+    <li><a href="#流程">流程</a></li>
+    <li><a href="#实践过程">实践过程</a>
+      <ul>
+        <li><a href="#确定目标">确定目标</a></li>
+        <li><a href="#分析数据请求">分析数据请求</a></li>
+        <li><a href="#模拟请求分析数据存储数据">模拟请求、分析数据、存储数据</a></li>
+      </ul>
+    </li>
+    <li><a href="#遇到的问题和解决方案">遇到的问题和解决方案</a></li>
+    <li><a href="#分析">分析</a></li>
+    <li><a href="#结语">结语</a></li>
+  </ul>
+</nav>
+  </div>
+</details>
+<details class="toc-inside mt-0 overflow-hidden rounded-lg -ms-5 ps-5 lg:hidden">
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 -ms-5 ps-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    
+  </summary>
+  <div
+    class="py-2 border-dotted border-neutral-300 border-s-1 -ms-5 ps-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#背景">背景</a></li>
+    <li><a href="#准备工作">准备工作</a></li>
+    <li><a href="#流程">流程</a></li>
+    <li><a href="#实践过程">实践过程</a>
+      <ul>
+        <li><a href="#确定目标">确定目标</a></li>
+        <li><a href="#分析数据请求">分析数据请求</a></li>
+        <li><a href="#模拟请求分析数据存储数据">模拟请求、分析数据、存储数据</a></li>
+      </ul>
+    </li>
+    <li><a href="#遇到的问题和解决方案">遇到的问题和解决方案</a></li>
+    <li><a href="#分析">分析</a></li>
+    <li><a href="#结语">结语</a></li>
+  </ul>
+</nav>
+  </div>
+</details>
+
+
+
+            
+          </div>
+        </div>
+      
+
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+
+        <div class="article-content max-w-prose mb-20">
+          <h2 class="relative group">背景
+    <div id="背景" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e8%83%8c%e6%99%af" aria-label="">#</a>
+    </span>
+    
+</h2>
+<p>最近女朋友需要利用<code>tableau</code>来做数据可视化的作业，要做数据可视化，那首先可定得要有数据。她们打算用八爪鱼等爬虫软件来抓取数据，结果没成功，原因不明。然后跟我吐槽了一下这个事情，刚好我最近也要学爬虫，本着项目驱动学习的理念，就直接选择了这个项目来练手了。</p>
+
+<h2 class="relative group">准备工作
+    <div id="准备工作" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e5%87%86%e5%a4%87%e5%b7%a5%e4%bd%9c" aria-label="">#</a>
+    </span>
+    
+</h2>
+<p>编程环境：</p>
+<pre tabindex="0"><code>IntelliJ IDEA 2017.1.5
+Build #IU-171.4694.70, built on July 4, 2017
+Licensed to weapon
+JRE: 1.8.0_112-release-736-b21 amd64
+JVM: OpenJDK 64-Bit Server VM by JetBrains s.r.o
+Windows 10 10.0
+</code></pre><p>编程环境如上所示，因为我Java语言比较熟悉，所以编程语言选择了Java。虽然Java做爬虫语法上面比较累赘，但是Python还没学会，就凑合着用Java写了。</p>
+
+<h2 class="relative group">流程
+    <div id="流程" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e6%b5%81%e7%a8%8b" aria-label="">#</a>
+    </span>
+    
+</h2>
+<p>我认为的爬虫的流程主要有以下几步</p>
+<ol>
+<li>确定目标：确定要抓取的网站和需要抓取的内容。</li>
+<li>分析数据请求：利用浏览器的控制台分析网站数据请求的方式（同步请求还是异步请求）。</li>
+<li>模拟请求：构造请求，获取数据。</li>
+<li>分析数据：分析数据，提取有效信息。</li>
+<li>存储数据。将数据存储到本地。</li>
+</ol>
+
+<h2 class="relative group">实践过程
+    <div id="实践过程" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e5%ae%9e%e8%b7%b5%e8%bf%87%e7%a8%8b" aria-label="">#</a>
+    </span>
+    
+</h2>
+
+<h3 class="relative group">确定目标
+    <div id="确定目标" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e7%a1%ae%e5%ae%9a%e7%9b%ae%e6%a0%87" aria-label="">#</a>
+    </span>
+    
+</h3>
+<p>我要抓取的网站是<a
+  href="http://www.taosj.com/index.html#/shop/detail/?id=59915065"
+    target="_blank"
+  >淘数据</a>的店铺监控下面的鸿星尔克、德芙、Opus三家店铺的数据，具体的数据如下图所示:
+<figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="low"
+    alt=""
+    src="/img/spider_1.png"
+    ></figure>
+</p>
+<p>主要包含店铺的数据明细、滞销宝贝、宝贝的上新跟踪、宝贝的改名记录、钻石展位、聚划算、淘宝客。</p>
+
+<h3 class="relative group">分析数据请求
+    <div id="分析数据请求" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e5%88%86%e6%9e%90%e6%95%b0%e6%8d%ae%e8%af%b7%e6%b1%82" aria-label="">#</a>
+    </span>
+    
+</h3>
+<p>打开chrome浏览器，F12打开控制台，点击<code>elements</code>审查元素，通过元素审查我们可知我们需要爬取的数据是通过Ajax异步请求的。接着点击<code>network</code>标签查看网络请求，点击<code>XHR</code>子标签查看Ajax请求，分析请求列表，找到我们需要的请求，单击查看请求详情。</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="low"
+    alt=""
+    src="/img/spider-2.png"
+    ></figure>
+</p>
+<blockquote>
+<p>PS: 浏览器都是通过HTTP协议进行数据交互的，所以要爬虫的话，还是需要对HTTP有一定的了解。可以参考<a
+  href="https://book.douban.com/subject/10746113/"
+    target="_blank"
+  >《HTTP权威指南》</a>、<a
+  href="https://book.douban.com/subject/25863515/"
+    target="_blank"
+  >《图解HTTP》</a>等书籍。</p></blockquote>
+<p>从图中我们可以很明显地得到包括请求和响应在内的Http的详细信息，包括请求的方法、请求的URL、请求的主机、请求的头部以及响应状态码，响应体的内容。Http的每个头部都有其含义，具体请参阅《HTTP权威指南》。在这里我们只关心和我们本次请求相关的内容，整理如下：</p>
+<table>
+  <thead>
+      <tr>
+          <th>字段</th>
+          <th>内容</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>请求方法</td>
+          <td>GET</td>
+      </tr>
+      <tr>
+          <td>请求URL</td>
+          <td><a
+  href="http://taosj.com/...../....stat"
+    target="_blank"
+  >http://taosj.com/...../....stat</a></td>
+      </tr>
+      <tr>
+          <td>Cookie</td>
+          <td>主要关心<code>auth</code>字段</td>
+      </tr>
+  </tbody>
+</table>
+<p>请求URL还可以进一步分析其参数组成。以图中的URL为例，<code>http://www.taosj.com/</code>协议和主机地址，<code>data/shop/offer/list</code>主机下的目录，<code>api_name=shop_get_offer_list...stat=</code>长长的参数列表。</p>
+<p>因为访问的数据是需要认证的，常见的认证方式有<code>cookie</code>和<code>token</code>（<a
+  href="https://oauth.net/2/"
+    target="_blank"
+  >OAuth2.0</a>）。经分析报头和尝试请求发现，网站是采用cookie认证的，而且主要的认证cookie字段是<code>auth</code>。</p>
+<p>接着分析响应体，响应体是<code>JSON</code>格式的字符串（关于<code>JSON</code>可以关注其<a
+  href="https://www.json.org/json-zh.html"
+    target="_blank"
+  >官网</a>）。</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="low"
+    alt=""
+    src="/img/spider-3.png"
+    ></figure>
+</p>
+
+<h3 class="relative group">模拟请求、分析数据、存储数据
+    <div id="模拟请求分析数据存储数据" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e6%a8%a1%e6%8b%9f%e8%af%b7%e6%b1%82%e5%88%86%e6%9e%90%e6%95%b0%e6%8d%ae%e5%ad%98%e5%82%a8%e6%95%b0%e6%8d%ae" aria-label="">#</a>
+    </span>
+    
+</h3>
+<p>经过上面的分析，我们已经知道了网站数据请求的方式、数据认证的方式、还有请求相关的信息。接下来就可以开展编码工作了。</p>
+<p>编码的环境前面已经介绍了，接下来介绍一下使用的开源库。</p>
+<blockquote>
+<ul>
+<li><code>okhttp</code>: 负责http网络请求。*   <code>json-java</code>: java端json实现。</li>
+<li><code>gson</code>: google官方的json解析库。</li>
+<li><code>poi</code>: apache开源的excel操作库。</li>
+</ul></blockquote>
+<p>项目构建工具使用<code>gradle</code>,构建脚本如下，<a
+  href="https://github.com/UZPENG/Crawler-Demo"
+    target="_blank"
+  >源码</a>在最后。</p>
+<pre tabindex="0"><code>group &#39;uzpeng&#39;
+version &#39;1.0-SNAPSHOT&#39;
+apply plugin: &#39;java&#39;
+apply plugin: &#39;idea&#39;
+sourceCompatibility = 1.8
+repositories {
+    mavenCentral()
+}
+dependencies {
+    testCompile group: &#39;junit&#39;, name: &#39;junit&#39;, version: &#39;4.12&#39;
+    compile group: &#39;org.apache.poi&#39;, name: &#39;poi&#39;, version: &#39;3.17&#39;
+    compile group: &#39;com.squareup.okhttp3&#39;, name: &#39;okhttp&#39;, version: &#39;3.9.1&#39;
+    compile group: &#39;org.json&#39;, name: &#39;json&#39;, version: &#39;20160810&#39;
+    compile group: &#39;com.google.code.gson&#39;, name: &#39;gson&#39;, version: &#39;2.8.2&#39;
+}
+</code></pre><p>首先，根据浏览器控制台的响应信息，使用<code>GsonFormat</code>插件生成实体类的信息。然后，对照网页显示，确认每一个字段的意义。接着，根据前一个步骤获取的Url和参数信息定义好Url和参数。接着，构造http请求，拿到数据。最后，分析数据，写入excel文件。</p>
+<p>我们请求的三个店铺都是不需要认证的，如果需要访问其他店铺数据的话，就需要登录。然后照着上面的分析请求的方法，取出cookie的<code>auth</code>字段，最后在构造请求的时候添加cookie头部信息。</p>
+<p>接着介绍一下代码实现，其主要包含以下四个模块：主函数、实体类、网络请求、写入文件。</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="low"
+    alt=""
+    src="/img/spider_4.png"
+    ></figure>
+</p>
+<p>网络请求的主要函数如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="n">Response</span><span class="w"> </span><span class="nf">request</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">url</span><span class="p">){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="n">Request</span><span class="w"> </span><span class="n">request</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="k">new</span><span class="w"> </span><span class="n">Request</span><span class="p">.</span><span class="na">Builder</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">              </span><span class="p">.</span><span class="na">url</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">              </span><span class="p">.</span><span class="na">addHeader</span><span class="p">(</span><span class="s">&#34;Cookie&#34;</span><span class="p">,</span><span class="n">Cookie</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">              </span><span class="p">.</span><span class="na">get</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">              </span><span class="p">.</span><span class="na">build</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="k">return</span><span class="w"> </span><span class="n">client</span><span class="p">.</span><span class="na">newCall</span><span class="p">(</span><span class="n">request</span><span class="p">).</span><span class="na">execute</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">IOException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="n">e</span><span class="p">.</span><span class="na">printStackTrace</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="k">return</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>请求很简单，传入我们分析得出的Url和cookie信息，构造请求，然后同步执行，返回结果。</p>
+<p>项目整体的数据流大致如下：</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="low"
+    alt=""
+    src="/img/spider-5.png"
+    ></figure>
+</p>
+<ol>
+<li><code>main</code>函数创建<code>RequestModel</code>，调用<code>RequestModel</code>的<code>requestXXX</code>方法。</li>
+<li><code>RequestModel</code>调用<code>HttpClient</code>的<code>request</code>方法。</li>
+<li>根据返回的数据调用<code>WriteToExcel()</code>方法。</li>
+<li><code>writeProxy</code>创建动态代理。</li>
+<li>动态代理的方法里面调用<code>writeIntoExcelManger</code>的<code>outputXXX()</code>方法，最后写入excel。</li>
+</ol>
+<p>代码实现有两点值得提一下：
+一是利用jdk动态动态代理，实现AOP，将写入excel的具体内容的代码插入创建excel工作簿和写入本地磁盘之间。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">WriteInvocationHandler</span><span class="w"> </span><span class="n">outputInvocationHandler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">WriteInvocationHandler</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">outputInvocationHandler</span><span class="p">.</span><span class="na">setWriteIntoExcelProxy</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">WriteIntoExcelManager</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">IWriteIntoExcel</span><span class="w"> </span><span class="n">proxy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">IWriteIntoExcel</span><span class="p">)</span><span class="w"> </span><span class="n">Proxy</span><span class="p">.</span><span class="na">newProxyInstance</span><span class="p">(</span><span class="n">WriteIntoExcelManager</span><span class="p">.</span><span class="na">class</span><span class="p">.</span><span class="na">getClassLoader</span><span class="p">(),</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Class</span><span class="o">[]</span><span class="p">{</span><span class="n">IWriteIntoExcel</span><span class="p">.</span><span class="na">class</span><span class="p">},</span><span class="w"> </span><span class="n">outputInvocationHandler</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">proxy</span><span class="p">.</span><span class="na">writeIntoExcel</span><span class="p">(</span><span class="n">file</span><span class="p">,</span><span class="w"> </span><span class="n">titles</span><span class="p">,</span><span class="w"> </span><span class="n">entities</span><span class="p">,</span><span class="w"> </span><span class="n">flag</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@Override</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="n">Object</span><span class="w"> </span><span class="nf">invoke</span><span class="p">(</span><span class="n">Object</span><span class="w"> </span><span class="n">proxy</span><span class="p">,</span><span class="w"> </span><span class="n">Method</span><span class="w"> </span><span class="n">method</span><span class="p">,</span><span class="w"> </span><span class="n">Object</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Throwable</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">File</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">File</span><span class="p">)</span><span class="w"> </span><span class="n">args</span><span class="o">[</span><span class="n">0</span><span class="o">]</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">titles</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="p">)</span><span class="n">args</span><span class="o">[</span><span class="n">1</span><span class="o">]</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">List</span><span class="o">&lt;?&gt;</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">List</span><span class="o">&lt;?&gt;</span><span class="p">)</span><span class="n">args</span><span class="o">[</span><span class="n">2</span><span class="o">]</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">flag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">Integer</span><span class="p">)</span><span class="w"> </span><span class="n">args</span><span class="o">[</span><span class="n">3</span><span class="o">]</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">try</span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">Workbook</span><span class="w"> </span><span class="n">workbook</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HSSFWorkbook</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">Sheet</span><span class="w"> </span><span class="n">sheet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">workbook</span><span class="p">.</span><span class="na">createSheet</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">writeIntoExcelProxy</span><span class="p">.</span><span class="na">setSheet</span><span class="p">(</span><span class="n">sheet</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">Row</span><span class="w"> </span><span class="n">row</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sheet</span><span class="p">.</span><span class="na">createRow</span><span class="p">(</span><span class="n">0</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">titles</span><span class="p">.</span><span class="na">length</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">row</span><span class="p">.</span><span class="na">createCell</span><span class="p">(</span><span class="n">i</span><span class="p">).</span><span class="na">setCellValue</span><span class="p">(</span><span class="n">titles</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">flag</span><span class="p">){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="n">WriteProxy</span><span class="p">.</span><span class="na">FLAG_OFFER_DETAIL</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">writeIntoExcelProxy</span><span class="p">.</span><span class="na">offerDetailOutput</span><span class="p">(</span><span class="n">list</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="k">break</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="n">WriteProxy</span><span class="p">.</span><span class="na">FLAG_SHOP_DETAIL</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">writeIntoExcelProxy</span><span class="p">.</span><span class="na">shopDetailOutput</span><span class="p">(</span><span class="n">list</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="k">break</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="n">WriteProxy</span><span class="p">.</span><span class="na">FLAG_RENAME</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">writeIntoExcelProxy</span><span class="p">.</span><span class="na">renameOutput</span><span class="p">(</span><span class="n">list</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="k">break</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="n">WriteProxy</span><span class="p">.</span><span class="na">FLAG_UNSALE</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">writeIntoExcelProxy</span><span class="p">.</span><span class="na">unSaleOutput</span><span class="p">(</span><span class="n">list</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="k">break</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="n">WriteProxy</span><span class="p">.</span><span class="na">FLAG_UPDATE</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">writeIntoExcelProxy</span><span class="p">.</span><span class="na">itemUpdateOutput</span><span class="p">(</span><span class="n">list</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="k">break</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="n">WriteProxy</span><span class="p">.</span><span class="na">FLAG_JUHUASUAN</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">writeIntoExcelProxy</span><span class="p">.</span><span class="na">juHuaSuanOutput</span><span class="p">(</span><span class="n">list</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="k">break</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="n">WriteProxy</span><span class="p">.</span><span class="na">FLAG_ZUANSHI</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">writeIntoExcelProxy</span><span class="p">.</span><span class="na">zuanShiOutput</span><span class="p">(</span><span class="n">list</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="k">break</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="n">WriteProxy</span><span class="p">.</span><span class="na">FLAG_TAOBAOKE</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">writeIntoExcelProxy</span><span class="p">.</span><span class="na">taobaokeOutput</span><span class="p">(</span><span class="n">list</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="k">break</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;开始写入文件。。。&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">workbook</span><span class="p">.</span><span class="na">write</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">FileOutputStream</span><span class="p">(</span><span class="n">file</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;写入完成！&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="p">}</span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Exception</span><span class="w"> </span><span class="n">e</span><span class="p">){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">e</span><span class="p">.</span><span class="na">printStackTrace</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">proxy</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>二是利用buidler模式构造Url参数</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">static</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ParamBuilder</span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">paraStr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;&#34;</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kd">public</span><span class="w"> </span><span class="n">ParamBuilder</span><span class="w"> </span><span class="nf">addParam</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">value</span><span class="p">){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">paraStr</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s">&#34;&amp;&#34;</span><span class="o">+</span><span class="n">key</span><span class="o">+</span><span class="s">&#34;=&#34;</span><span class="o">+</span><span class="n">value</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kd">public</span><span class="w"> </span><span class="n">ParamBuilder</span><span class="w"> </span><span class="nf">addId</span><span class="p">(){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">addParam</span><span class="p">(</span><span class="n">Key</span><span class="p">.</span><span class="na">id</span><span class="p">,</span><span class="w"> </span><span class="n">Id</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kd">public</span><span class="w"> </span><span class="n">ParamBuilder</span><span class="w"> </span><span class="nf">addShopId</span><span class="p">(){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">addParam</span><span class="p">(</span><span class="n">Key</span><span class="p">.</span><span class="na">shopId</span><span class="p">,</span><span class="w"> </span><span class="n">Id</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kd">public</span><span class="w"> </span><span class="n">ParamBuilder</span><span class="w"> </span><span class="nf">addDate</span><span class="p">(){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">addParam</span><span class="p">(</span><span class="n">Key</span><span class="p">.</span><span class="na">startDate</span><span class="p">,</span><span class="w"> </span><span class="n">startDate</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">addParam</span><span class="p">(</span><span class="n">Key</span><span class="p">.</span><span class="na">endDate</span><span class="p">,</span><span class="w"> </span><span class="n">endDate</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">build</span><span class="p">(){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">paraStr</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>这里我们将分析数据和存储数据合并在了模拟请求里面，这是因为我们要做的这个爬虫比较简单，数据都是JSON的格式返回回的。如果数据格式比较复杂（如嵌在网页里），则需要构造正则表达式或者利用一些工具分析。同时，因为我们爬取的数据量不太而且不需要持久存储，所以我们直接输出在excel里面了。但是，实际应用中（如全站爬虫），爬取的数据量一般很大，而且需要持久存储、去重、更新维护等等。因此，我们一般会使用数据库，这会让存储数据变得复杂一些。</p>
+
+<h2 class="relative group">遇到的问题和解决方案
+    <div id="遇到的问题和解决方案" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e9%81%87%e5%88%b0%e7%9a%84%e9%97%ae%e9%a2%98%e5%92%8c%e8%a7%a3%e5%86%b3%e6%96%b9%e6%a1%88" aria-label="">#</a>
+    </span>
+    
+</h2>
+<p>问题：Gson解析错误，提示类型不匹配
+原因：这个问题是由于GsonFormat产生的错误，由于price相关字段的数值为浮点型，但是我们取样的json里面的类型是int，所以会导致解析异常。
+解决方法：只要将price相关的字段都改为double型即可。</p>
+<p>问题：Gson解析错误提示<code>Unterminated object at line x column xxx</code>
+原因：根据堆栈日志可以定位到json发现，json里面存在类似<code>title&amp;quot;:&amp;quot;\\&amp;quot;Nike 耐克官方 NSW \\&amp;quot;\\&amp;quot;LET THERE BE AIR\\&amp;quot;\\&amp;quot; 大童（男孩）T恤 863808\\&amp;quot;</code>这种字符串，这明显是不符合JSON要求的。
+解决方案：写一个正则表达式，把非法字符串替换成空串即可。
+PS：吐槽一下，其实这是他们后台的一个bug，他们的页面也无法访问这种类型的数据，会提示错误。。。</p>
+
+<h2 class="relative group">分析
+    <div id="分析" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e5%88%86%e6%9e%90" aria-label="">#</a>
+    </span>
+    
+</h2>
+<p>至此，我们就实现了一个最简单的爬虫了。现在我们能够将一些接口的数据爬取回来并且写入本地excel文件了。在实现的过程中还利用了builder模式和JDK动态代理增加代码可读性和减少重复性代码。但是，爬虫的内容绝对不止这么简单，我们这个这么简单一方面是因为我们进行爬虫的网站没有做防爬虫机制。另外一方面，我们的爬取的数据是异步请求的，所以从获取到解析都是相对容易的。但是大量的网站的数据是同步获取的，数据都是嵌入在html代码里面，这个时候就需要我们分析html代码。
+常见的防爬虫措施有以下几种：</p>
+<ol>
+<li>在网站的robot.txt文件里面声明哪些是爬虫可以访问的数据。</li>
+<li>同一IP大量请求后，屏蔽该IP一段时间。</li>
+<li>对于请求频率过高的请求要求验证码或谷歌人机验证。</li>
+</ol>
+<p>豆瓣是防爬虫做得比较严格一个鲜明的例子。我曾经试过在正常浏览的情况下，就是因为浏览得快一点，就在短时间内被多次要求输入验证码。</p>
+<p>既然防爬虫有那么多措施，那么爬虫要怎么应对呢？其实也是有解决方案的。对于封IP的行为，采用公开的IP池的方式，每次使用不同的IP即可。对于请求频率过高要求验证的问题，第一，可以控制请求的频率，第二，人工输入验证码。显而易见，由于web是公开的特征，所以爬虫还是很难完全封掉的。因为你无法准确地判断服务器接收到的请求是爬虫发出的还是用户发出的，所以只能封禁一些明显是爬虫访问的请求，但是爬虫也可以不断地改进从而最大程度模拟用户请求的。</p>
+
+<h2 class="relative group">结语
+    <div id="结语" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e7%bb%93%e8%af%ad" aria-label="">#</a>
+    </span>
+    
+</h2>
+<p>如上所述，这只是一个简单的爬虫例子，但是麻雀虽小，五张俱全，还是能完整体现整个爬虫的流程的。另外，java爬虫确实是有点累赘，而且大量Java Bean的创建也需要花费不少的时间。最近在学习python，学好之后可以使用python的爬虫框架scrapy去爬取一些带有防爬虫的和多重认证的网站，而且还可以把数据存储在数据库里面、做一些去重等等的工作。爬虫是一个很有趣的过程，有很多东西可以研究的。</p>
+<p>本次的爬虫就到这里啦，下次做了更复杂的爬虫可以再来分享一下。</p>
+<p>[1] 源代码：<a
+  href="https://github.com/UZPENG/Crawler-Demo"
+    target="_blank"
+  >https://github.com/UZPENG/Crawler-Demo</a></p>
+          
+          
+          
+        </div>
+        
+        
+
+        
+  
+  <section class="flex flex-row flex-wrap justify-center pt-4 text-xl">
+    
+      
+        <a
+          target="_blank"
+          class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+          href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:1313/zh/posts/crawl/&amp;title=%e7%88%ac%e8%99%ab%e5%ae%9e%e8%b7%b5--%e6%b7%98%e6%95%b0%e6%8d%ae%e7%bd%91%e7%ab%99%e7%9a%84%e6%95%b0%e6%8d%ae%e7%88%ac%e5%8f%96%e5%92%8c%e5%ad%98%e5%82%a8"
+          title=""
+          aria-label="">
+          <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+</span>
+        </a>
+      
+    
+      
+        <a
+          target="_blank"
+          class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+          href="https://twitter.com/intent/tweet/?url=http://localhost:1313/zh/posts/crawl/&amp;text=%e7%88%ac%e8%99%ab%e5%ae%9e%e8%b7%b5--%e6%b7%98%e6%95%b0%e6%8d%ae%e7%bd%91%e7%ab%99%e7%9a%84%e6%95%b0%e6%8d%ae%e7%88%ac%e5%8f%96%e5%92%8c%e5%ad%98%e5%82%a8"
+          title=""
+          aria-label="">
+          <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg></span>
+        </a>
+      
+    
+      
+        <a
+          target="_blank"
+          class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+          href="https://api.whatsapp.com/send?text=http://localhost:1313/zh/posts/crawl/&amp;resubmit=true&amp;title=%e7%88%ac%e8%99%ab%e5%ae%9e%e8%b7%b5--%e6%b7%98%e6%95%b0%e6%8d%ae%e7%bd%91%e7%ab%99%e7%9a%84%e6%95%b0%e6%8d%ae%e7%88%ac%e5%8f%96%e5%92%8c%e5%ad%98%e5%82%a8"
+          title=""
+          aria-label="">
+          <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+</span>
+        </a>
+      
+    
+      
+        <a
+          target="_blank"
+          class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+          href="https://pinterest.com/pin/create/bookmarklet/?url=http://localhost:1313/zh/posts/crawl/&amp;description=%e7%88%ac%e8%99%ab%e5%ae%9e%e8%b7%b5--%e6%b7%98%e6%95%b0%e6%8d%ae%e7%bd%91%e7%ab%99%e7%9a%84%e6%95%b0%e6%8d%ae%e7%88%ac%e5%8f%96%e5%92%8c%e5%ad%98%e5%82%a8"
+          title=""
+          aria-label="">
+          <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M496 256c0 137-111 248-248 248-25.6 0-50.2-3.9-73.4-11.1 10.1-16.5 25.2-43.5 30.8-65 3-11.6 15.4-59 15.4-59 8.1 15.4 31.7 28.5 56.8 28.5 74.8 0 128.7-68.8 128.7-154.3 0-81.9-66.9-143.2-152.9-143.2-107 0-163.9 71.8-163.9 150.1 0 36.4 19.4 81.7 50.3 96.1 4.7 2.2 7.2 1.2 8.3-3.3.8-3.4 5-20.3 6.9-28.1.6-2.5.3-4.7-1.7-7.1-10.1-12.5-18.3-35.3-18.3-56.6 0-54.7 41.4-107.6 112-107.6 60.9 0 103.6 41.5 103.6 100.9 0 67.1-33.9 113.6-78 113.6-24.3 0-42.6-20.1-36.7-44.8 7-29.5 20.5-61.3 20.5-82.6 0-19-10.2-34.9-31.4-34.9-24.9 0-44.9 25.7-44.9 60.2 0 22 7.4 36.8 7.4 36.8s-24.5 103.8-29 123.2c-5 21.4-3 51.6-.9 71.2C65.4 450.9 0 361.1 0 256 0 119 111 8 248 8s248 111 248 248z"/></svg>
+</span>
+        </a>
+      
+    
+      
+        <a
+          target="_blank"
+          class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+          href="https://reddit.com/submit/?url=http://localhost:1313/zh/posts/crawl/&amp;resubmit=true&amp;title=%e7%88%ac%e8%99%ab%e5%ae%9e%e8%b7%b5--%e6%b7%98%e6%95%b0%e6%8d%ae%e7%bd%91%e7%ab%99%e7%9a%84%e6%95%b0%e6%8d%ae%e7%88%ac%e5%8f%96%e5%92%8c%e5%ad%98%e5%82%a8"
+          title=""
+          aria-label="">
+          <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M201.5 305.5c-13.8 0-24.9-11.1-24.9-24.6 0-13.8 11.1-24.9 24.9-24.9 13.6 0 24.6 11.1 24.6 24.9 0 13.6-11.1 24.6-24.6 24.6zM504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zm-132.3-41.2c-9.4 0-17.7 3.9-23.8 10-22.4-15.5-52.6-25.5-86.1-26.6l17.4-78.3 55.4 12.5c0 13.6 11.1 24.6 24.6 24.6 13.8 0 24.9-11.3 24.9-24.9s-11.1-24.9-24.9-24.9c-9.7 0-18 5.8-22.1 13.8l-61.2-13.6c-3-.8-6.1 1.4-6.9 4.4l-19.1 86.4c-33.2 1.4-63.1 11.3-85.5 26.8-6.1-6.4-14.7-10.2-24.1-10.2-34.9 0-46.3 46.9-14.4 62.8-1.1 5-1.7 10.2-1.7 15.5 0 52.6 59.2 95.2 132 95.2 73.1 0 132.3-42.6 132.3-95.2 0-5.3-.6-10.8-1.9-15.8 31.3-16 19.8-62.5-14.9-62.5zM302.8 331c-18.2 18.2-76.1 17.9-93.6 0-2.2-2.2-6.1-2.2-8.3 0-2.5 2.5-2.5 6.4 0 8.6 22.8 22.8 87.3 22.8 110.2 0 2.5-2.2 2.5-6.1 0-8.6-2.2-2.2-6.1-2.2-8.3 0zm7.7-75c-13.6 0-24.6 11.1-24.6 24.9 0 13.6 11.1 24.6 24.6 24.6 13.8 0 24.9-11.1 24.9-24.6 0-13.8-11-24.9-24.9-24.9z"/></svg>
+</span>
+        </a>
+      
+    
+      
+        <a
+          target="_blank"
+          class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+          href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:1313/zh/posts/crawl/&amp;quote=%e7%88%ac%e8%99%ab%e5%ae%9e%e8%b7%b5--%e6%b7%98%e6%95%b0%e6%8d%ae%e7%bd%91%e7%ab%99%e7%9a%84%e6%95%b0%e6%8d%ae%e7%88%ac%e5%8f%96%e5%92%8c%e5%ad%98%e5%82%a8"
+          title=""
+          aria-label="">
+          <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
+</span>
+        </a>
+      
+    
+      
+        <a
+          target="_blank"
+          class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+          href="mailto:?body=http://localhost:1313/zh/posts/crawl/&amp;subject=%e7%88%ac%e8%99%ab%e5%ae%9e%e8%b7%b5--%e6%b7%98%e6%95%b0%e6%8d%ae%e7%bd%91%e7%ab%99%e7%9a%84%e6%95%b0%e6%8d%ae%e7%88%ac%e5%8f%96%e5%92%8c%e5%ad%98%e5%82%a8"
+          title=""
+          aria-label="">
+          <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M207.8 20.73c-93.45 18.32-168.7 93.66-187 187.1c-27.64 140.9 68.65 266.2 199.1 285.1c19.01 2.888 36.17-12.26 36.17-31.49l.0001-.6631c0-15.74-11.44-28.88-26.84-31.24c-84.35-12.98-149.2-86.13-149.2-174.2c0-102.9 88.61-185.5 193.4-175.4c91.54 8.869 158.6 91.25 158.6 183.2l0 16.16c0 22.09-17.94 40.05-40 40.05s-40.01-17.96-40.01-40.05v-120.1c0-8.847-7.161-16.02-16.01-16.02l-31.98 .0036c-7.299 0-13.2 4.992-15.12 11.68c-24.85-12.15-54.24-16.38-86.06-5.106c-38.75 13.73-68.12 48.91-73.72 89.64c-9.483 69.01 43.81 128 110.9 128c26.44 0 50.43-9.544 69.59-24.88c24 31.3 65.23 48.69 109.4 37.49C465.2 369.3 496 324.1 495.1 277.2V256.3C495.1 107.1 361.2-9.332 207.8 20.73zM239.1 304.3c-26.47 0-48-21.56-48-48.05s21.53-48.05 48-48.05s48 21.56 48 48.05S266.5 304.3 239.1 304.3z"/></svg>
+</span>
+        </a>
+      
+    
+  </section>
+
+
+        
+
+      </div>
+
+      
+      
+        
+        
+          
+          
+        
+        
+        
+        <script
+          type="text/javascript"
+          src="/js/page.min.54b6f4371722649edbe871e431d8670d670878c22be8f36e229fe53cc9b786fe25a834def5e6de621f7a3e37b72bc8cd73839aa5ed907ed6cbd45cd3e1b0fa20.js"
+          integrity="sha512-VLb0NxciZJ7b6HHkMdhnDWcIeMIr6PNuIp/lPMm3hv4lqDTe9ebeYh96Pje3K8jNc4Oape2QftbL1FzT4bD6IA=="
+          data-oid="views_zh\posts\crawl.md"
+          data-oid-likes="likes_zh\posts\crawl.md"></script>
+      
+    </section>
+
+    
+    <footer class="pt-8 max-w-prose print:hidden">
+      
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600">
+      <div class="flex justify-between pt-3">
+        <span class="flex flex-col">
+          
+            <a
+              class="flex text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+              href="/zh/posts/start/">
+              <span class="leading-6">
+                <span class="inline-block rtl:rotate-180">&larr;</span>&ensp;我的博客之旅
+              </span>
+            </a>
+            
+              <span class="ms-6 mt-1 text-xs text-neutral-500 dark:text-neutral-400">
+                <time datetime="2017-03-04T19:31:34&#43;00:00"></time>
+              </span>
+            
+          
+        </span>
+        <span class="flex flex-col items-end">
+          
+            <a
+              class="flex text-right text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+              href="/zh/posts/scrapy/">
+              <span class="leading-6">
+                scrapy+selenium+headless-chrome爬虫总结&ensp;<span class="inline-block rtl:rotate-180">&rarr;</span>
+              </span>
+            </a>
+            
+              <span class="me-6 mt-1 text-xs text-neutral-500 dark:text-neutral-400">
+                <time datetime="2018-03-05T19:37:12&#43;00:00"></time>
+              </span>
+            
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+      
+    </footer>
+  </article>
+
+        
+
+
+  
+
+
+
+
+
+
+<div
+  id="scroll-to-top"
+  class="fixed bottom-6 end-6 z-50 transform translate-y-4 opacity-0 duration-200">
+  <a
+    href="#the-top"
+    class="pointer-events-auto flex h-12 w-12 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label=""
+    title="">
+    &uarr;
+  </a>
+</div>
+
+      </main><footer id="site-footer" class="py-10 print:hidden">
+  
+  
+    
+  
+  <div class="flex items-center justify-between">
+    
+    
+      <p class="text-sm text-neutral-500 dark:text-neutral-400">
+          &copy;
+          2025
+          UZPENG
+      </p>
+    
+
+    
+    
+      <p class="text-xs text-neutral-500 dark:text-neutral-400">
+        
+        
+        
+      </p>
+    
+  </div>
+  
+    <script>
+      mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+        margin: 24,
+        background: "rgba(0,0,0,0.5)",
+        scrollOffset: 0,
+      });
+    </script>
+  
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js"
+    integrity="sha512-7gNIjxnJPC77GZ4uMBTqXzyyzn1FFUrbM5mhWMrCfKUoMdsknt5btgJwDvh&#43;sCQ0E53ghYrxgYqw&#43;0GCRyIEpA=="></script>
+  
+  
+</footer>
+<div
+  id="search-wrapper"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh] z-500"
+  data-url="http://localhost:1313/">
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800">
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          <span class="relative block icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder=""
+          tabindex="0">
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="">
+        <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+</span>
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+    </div>
+  </body>
+  
+</html>

@@ -1,0 +1,24 @@
+languageCode = "zh"
+languageName = "Chinese"
+weight = 1
+title = "UZPENG"
+contentDir = 'content/zh'
+
+
+[params]
+  displayName = "中文"
+  isoCode = "zh"
+  rtl = false
+  # logo = "img/logo.png"
+  description = "互利互惠，合作共赢 ; Help each others, Win together."
+  # copyright = "Copy, _right?_ :thinking_face:"
+  dateFormat = "2 January 2006"
+
+[params.author]
+  name = "UZPENG"
+  image = "img/avatar.jpg"
+  headline = ""
+  bio = "略懂代码，喜欢徒步，业余带娃爱好者。"
+   links = [
+     { github = "https://github.com/uzpeng" },
+   ]

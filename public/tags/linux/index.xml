@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linux on UZPENG</title>
+    <link>http://localhost:1313/tags/linux/</link>
+    <description>Recent content in Linux on UZPENG</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <copyright>© 2025 UZPENG</copyright>
+    <lastBuildDate>Sun, 02 Sep 2018 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Linux-IO多路复用-SELECT/POLL/EPOLL</title>
+      <link>http://localhost:1313/posts/io-multiplexing/</link>
+      <pubDate>Sun, 02 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/io-multiplexing/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;本文翻译自&lt;code&gt;DEVELPERS AREA&lt;/code&gt;的&lt;a
+  href=&#34;http://devarea.com/linux-io-multiplexing-select-vs-poll-vs-epoll&#34;
+    target=&#34;_blank&#34;
+  &gt;LINUX – IO MULTIPLEXING – SELECT VS POLL VS EPOLL&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;h1 class=&#34;relative group&#34;&gt;前言
+    &lt;div id=&#34;前言&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;text-primary-300 dark:text-neutral-700 !no-underline&#34; href=&#34;#%e5%89%8d%e8%a8%80&#34; aria-label=&#34;&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;
+    
+&lt;/h1&gt;
+&lt;p&gt;众所周知，在linux的世界里，一切皆文件。每一个进程都拥有一张文件描述符的表，指向文件、socket、硬件还有一些操作系统对象。&lt;/p&gt;
+&lt;p&gt;典型的拥有很多IO源的系统都会有一个初始化的阶段，然后进入待机模式——等待客户端请求并且响应。&lt;/p&gt;
+&lt;p&gt;最简单的解决方案就是为每一个客户端创建一个线程（或者进程），一直阻塞直到请求发送或者写入了响应。这种模式在客户端数量很小的时候可以工作，但是我们想要扩展到成千上万的客户端，为每个客户端创建线程（或者进程）是一个很糟糕的主意。&lt;/p&gt;
+
+&lt;h1 class=&#34;relative group&#34;&gt;IO多路复用
+    &lt;div id=&#34;io多路复用&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;text-primary-300 dark:text-neutral-700 !no-underline&#34; href=&#34;#io%e5%a4%9a%e8%b7%af%e5%a4%8d%e7%94%a8&#34; aria-label=&#34;&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;
+    
+&lt;/h1&gt;
+&lt;p&gt;问题的解决方案是使用内核机制去轮询一系列的文件描述符。在linux系统下，主要有以下三种选择：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;select(2)&lt;/li&gt;
+&lt;li&gt;poll(2)&lt;/li&gt;
+&lt;li&gt;epoll&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;以上三种方法的思想都是一致的，新建一系列的文件描述符，告诉内核你对每一个描述符的操作，然后使用线程去阻塞一个函数调用直到至少有一个文件描述符请求的操作是可用的。&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>linux常用命令速查</title>
+      <link>http://localhost:1313/posts/linux-command/</link>
+      <pubDate>Wed, 22 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/linux-command/</guid>
+      <description>&lt;h1 class=&#34;relative group&#34;&gt;前言
+    &lt;div id=&#34;前言&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;text-primary-300 dark:text-neutral-700 !no-underline&#34; href=&#34;#%e5%89%8d%e8%a8%80&#34; aria-label=&#34;&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;
+    
+&lt;/h1&gt;
+&lt;p&gt;记录一些linux的常用操作以便查询，暂时先记录，以后有时间再分门别类。&lt;/p&gt;</description>
+      
+    </item>
+    
+  </channel>
+</rss>
