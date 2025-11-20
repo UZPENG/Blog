@@ -2,17 +2,17 @@ languageCode = "zh"
 languageName = "Chinese"
 weight = 1
 title = "UZPENG"
-contentDir = 'content/zh'
+contentDir = 'content/zh-cn'
 
 
 [params]
-  displayName = "中文"
-  isoCode = "zh"
+  displayName = "简体中文"
+  isoCode = "zh-cn"
   rtl = false
   # logo = "img/logo.png"
   description = "互利互惠，合作共赢 ; Help each others, Win together."
   # copyright = "Copy, _right?_ :thinking_face:"
-  dateFormat = "2 January 2006"
+  dateFormat = "2006-01-02"
 
 [params.author]
   name = "UZPENG"

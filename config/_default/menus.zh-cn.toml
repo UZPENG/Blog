@@ -11,26 +11,27 @@
 # ordered by weight from lowest to highest.
 
 [[main]]
-  name = "博客"
-  pageRef = "posts"
-  weight = 1
+name = "博客"
+pageRef = "posts"
+weight = 1
 
-[[main]]
-  name = "简历"
-  pageRef = "resume"
-  weight = 2
+# [[main]]
+# identifier = "resume"
+# name = "简历"
+# pageRef = "resume"
+# weight = 2
 
-[[main]]
-  name = "友链"
-  pageRef = "link"
-  weight = 3
+# [[main]]
+# name = "友链"
+# pageRef = "link"
+# weight = 3
 
 # -- Footer Menu --
 # The footer menu is displayed at the bottom of the page, just before
 # the copyright notice. Configure as per the main menu above.
 
 
- [[footer]]
-   name = "标签"
-   pageRef = "tags"
-   weight = 1
+[[footer]]
+name = "标签"
+pageRef = "tags"
+weight = 1
