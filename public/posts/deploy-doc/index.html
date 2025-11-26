@@ -117,8 +117,8 @@ $ wget https://dev.mysql.com/get/mysql57-community-release-el7-9.noarch.rpm 首�
   <link
     type="text/css"
     rel="stylesheet"
-    href="/css/main.bundle.min.2c01bd95c642f66b6b9f802b719314b97c5beace2c3f2627b333d036bdb76d1d033248c10633b7bb3e65f8e4b71e1f7213176668ca98539f8721a8f711934376.css"
-    integrity="sha512-LAG9lcZC9mtrn4ArcZMUuXxb6s4sPyYnszPQNr23bR0DMkjBBjO3uz5l&#43;OS3Hh9yExdmaMqYU5&#43;HIaj3EZNDdg==">
+    href="/css/main.bundle.min.39b2b72cb1187e8a119efd4db44b21dee736dc64f705a4ca37fc0e5fe991b88ddf384bc0ee3e5eefb169205ec963ef484a63f723317257724989ad7eb345b678.css"
+    integrity="sha512-ObK3LLEYfooRnv1NtEsh3uc23GT3BaTKN/wOX&#43;mRuI3fOEvA7j5e77FpIF7JY&#43;9ISmP3IzFyV3JJia1&#43;s0W2eA==">
 
   
   
@@ -226,7 +226,7 @@ $ wget https://dev.mysql.com/get/mysql57-community-release-el7-9.noarch.rpm 首�
     
     "abstract": "\u003ch1 class=\u0022relative group\u0022\u003e前言\r\n    \u003cdiv id=\u0022前言\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\r\n    \r\n    \u003cspan\r\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none\u0022\u003e\r\n        \u003ca class=\u0022text-primary-300 dark:text-neutral-700 !no-underline\u0022 href=\u0022#%e5%89%8d%e8%a8%80\u0022 aria-label=\u0022锚点\u0022\u003e#\u003c\/a\u003e\r\n    \u003c\/span\u003e\r\n    \r\n\u003c\/h1\u003e\r\n\u003cp\u003e毕业设计做了一个签到系统的服务端，架构使用的Java栈的传统架构，也是最简单的架构。这个架构主要用Nginx做反向代理和负载均衡（我的项目没有使用到这一块），Tomcat作为Servlet的容器，MySQL作为数据库。项目也比较基础，没有太多难点，但是在项目部署过程当中还是遇到了一些问题，所以想着把部署的过程及记录下来，方便自己查看。\u003c\/p\u003e\n\r\n\u003ch1 class=\u0022relative group\u0022\u003e系统环境\r\n    \u003cdiv id=\u0022系统环境\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\r\n    \r\n    \u003cspan\r\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none\u0022\u003e\r\n        \u003ca class=\u0022text-primary-300 dark:text-neutral-700 !no-underline\u0022 href=\u0022#%e7%b3%bb%e7%bb%9f%e7%8e%af%e5%a2%83\u0022 aria-label=\u0022锚点\u0022\u003e#\u003c\/a\u003e\r\n    \u003c\/span\u003e\r\n    \r\n\u003c\/h1\u003e\r\n\u003cp\u003e操作系统：CentOS 7.4 x64\u003cbr\u003e\nJDK: 1.8.171\u003cbr\u003e\nMySQL: 5.7\u003cbr\u003e\nTomcat: 9.0.8\u003c\/p\u003e\n\u003c!--more---\u003e\r\n\r\n\u003ch1 class=\u0022relative group\u0022\u003e软件安装\r\n    \u003cdiv id=\u0022软件安装\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\r\n    \r\n    \u003cspan\r\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none\u0022\u003e\r\n        \u003ca class=\u0022text-primary-300 dark:text-neutral-700 !no-underline\u0022 href=\u0022#%e8%bd%af%e4%bb%b6%e5%ae%89%e8%a3%85\u0022 aria-label=\u0022锚点\u0022\u003e#\u003c\/a\u003e\r\n    \u003c\/span\u003e\r\n    \r\n\u003c\/h1\u003e\r\n\r\n\u003ch2 class=\u0022relative group\u0022\u003eMySQL数据库\r\n    \u003cdiv id=\u0022mysql数据库\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\r\n    \r\n    \u003cspan\r\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none\u0022\u003e\r\n        \u003ca class=\u0022text-primary-300 dark:text-neutral-700 !no-underline\u0022 href=\u0022#mysql%e6%95%b0%e6%8d%ae%e5%ba%93\u0022 aria-label=\u0022锚点\u0022\u003e#\u003c\/a\u003e\r\n    \u003c\/span\u003e\r\n    \r\n\u003c\/h2\u003e\r\n\u003cp\u003eMySQL由于历史原因（就是Oracle之前收购MySQL，社区担心Oracle闭源MySQL数据库，所以更改了源，默认的源是MariaDB)没有办法直接使用\u003ccode\u003eyum\u003c\/code\u003e命令安装，所以需要手动下载然后添加。\u003c\/p\u003e\n\u003cpre tabindex=\u00220\u0022\u003e\u003ccode\u003e$ wget https:\/\/dev.mysql.com\/get\/mysql57-community-release-el7-9.noarch.rpm\n\u003c\/code\u003e\u003c\/pre\u003e\u003cp\u003e首先下载MySQL 5.7版本的包，然后添加到仓库。\u003c\/p\u003e",
     "inLanguage": "zh",
-    "url" : "http:\/\/localhost:1313\/posts\/deploy-doc\/",
+    "url" : "http://localhost:1313/posts/deploy-doc/",
     "author" : {
       "@type": "Person",
       "name": "UZPENG"
@@ -704,6 +704,9 @@ $ wget https://dev.mysql.com/get/mysql57-community-release-el7-9.noarch.rpm 首�
     
       
       
+      
+        
+        
         
       
       <img
@@ -712,7 +715,7 @@ $ wget https://dev.mysql.com/get/mysql57-community-release-el7-9.noarch.rpm 首�
         height="96"
         alt="UZPENG"
         src="/img/avatar_hu_88834d0c055fcb7d.jpg"
-        data-zoom-src="/img/avatar.jpg">
+        data-zoom-src="/img/avatar_hu_44a6cb6b16dea98d.jpg">
     
   
   <div class="place-self-center">

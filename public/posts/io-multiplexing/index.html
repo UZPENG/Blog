@@ -115,8 +115,8 @@ select(2) poll(2) epoll 以上三种方法的思想都是一致的，新建一�
   <link
     type="text/css"
     rel="stylesheet"
-    href="/css/main.bundle.min.2c01bd95c642f66b6b9f802b719314b97c5beace2c3f2627b333d036bdb76d1d033248c10633b7bb3e65f8e4b71e1f7213176668ca98539f8721a8f711934376.css"
-    integrity="sha512-LAG9lcZC9mtrn4ArcZMUuXxb6s4sPyYnszPQNr23bR0DMkjBBjO3uz5l&#43;OS3Hh9yExdmaMqYU5&#43;HIaj3EZNDdg==">
+    href="/css/main.bundle.min.39b2b72cb1187e8a119efd4db44b21dee736dc64f705a4ca37fc0e5fe991b88ddf384bc0ee3e5eefb169205ec963ef484a63f723317257724989ad7eb345b678.css"
+    integrity="sha512-ObK3LLEYfooRnv1NtEsh3uc23GT3BaTKN/wOX&#43;mRuI3fOEvA7j5e77FpIF7JY&#43;9ISmP3IzFyV3JJia1&#43;s0W2eA==">
 
   
   
@@ -224,7 +224,7 @@ select(2) poll(2) epoll 以上三种方法的思想都是一致的，新建一�
     
     "abstract": "\u003cblockquote\u003e\n\u003cp\u003e本文翻译自\u003ccode\u003eDEVELPERS AREA\u003c\/code\u003e的\u003ca\r\n  href=\u0022http:\/\/devarea.com\/linux-io-multiplexing-select-vs-poll-vs-epoll\u0022\r\n    target=\u0022_blank\u0022\r\n  \u003eLINUX – IO MULTIPLEXING – SELECT VS POLL VS EPOLL\u003c\/a\u003e\u003c\/p\u003e\n\u003c\/blockquote\u003e\n\r\n\u003ch1 class=\u0022relative group\u0022\u003e前言\r\n    \u003cdiv id=\u0022前言\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\r\n    \r\n    \u003cspan\r\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none\u0022\u003e\r\n        \u003ca class=\u0022text-primary-300 dark:text-neutral-700 !no-underline\u0022 href=\u0022#%e5%89%8d%e8%a8%80\u0022 aria-label=\u0022锚点\u0022\u003e#\u003c\/a\u003e\r\n    \u003c\/span\u003e\r\n    \r\n\u003c\/h1\u003e\r\n\u003cp\u003e众所周知，在linux的世界里，一切皆文件。每一个进程都拥有一张文件描述符的表，指向文件、socket、硬件还有一些操作系统对象。\u003c\/p\u003e\n\u003cp\u003e典型的拥有很多IO源的系统都会有一个初始化的阶段，然后进入待机模式——等待客户端请求并且响应。\u003c\/p\u003e\n\u003cp\u003e最简单的解决方案就是为每一个客户端创建一个线程（或者进程），一直阻塞直到请求发送或者写入了响应。这种模式在客户端数量很小的时候可以工作，但是我们想要扩展到成千上万的客户端，为每个客户端创建线程（或者进程）是一个很糟糕的主意。\u003c\/p\u003e\n\r\n\u003ch1 class=\u0022relative group\u0022\u003eIO多路复用\r\n    \u003cdiv id=\u0022io多路复用\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\r\n    \r\n    \u003cspan\r\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none\u0022\u003e\r\n        \u003ca class=\u0022text-primary-300 dark:text-neutral-700 !no-underline\u0022 href=\u0022#io%e5%a4%9a%e8%b7%af%e5%a4%8d%e7%94%a8\u0022 aria-label=\u0022锚点\u0022\u003e#\u003c\/a\u003e\r\n    \u003c\/span\u003e\r\n    \r\n\u003c\/h1\u003e\r\n\u003cp\u003e问题的解决方案是使用内核机制去轮询一系列的文件描述符。在linux系统下，主要有以下三种选择：\u003c\/p\u003e\n\u003cul\u003e\n\u003cli\u003eselect(2)\u003c\/li\u003e\n\u003cli\u003epoll(2)\u003c\/li\u003e\n\u003cli\u003eepoll\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003cp\u003e以上三种方法的思想都是一致的，新建一系列的文件描述符，告诉内核你对每一个描述符的操作，然后使用线程去阻塞一个函数调用直到至少有一个文件描述符请求的操作是可用的。\u003c\/p\u003e",
     "inLanguage": "zh",
-    "url" : "http:\/\/localhost:1313\/posts\/io-multiplexing\/",
+    "url" : "http://localhost:1313/posts/io-multiplexing/",
     "author" : {
       "@type": "Person",
       "name": "UZPENG"
@@ -702,6 +702,9 @@ select(2) poll(2) epoll 以上三种方法的思想都是一致的，新建一�
     
       
       
+      
+        
+        
         
       
       <img
@@ -710,7 +713,7 @@ select(2) poll(2) epoll 以上三种方法的思想都是一致的，新建一�
         height="96"
         alt="UZPENG"
         src="/img/avatar_hu_88834d0c055fcb7d.jpg"
-        data-zoom-src="/img/avatar.jpg">
+        data-zoom-src="/img/avatar_hu_44a6cb6b16dea98d.jpg">
     
   
   <div class="place-self-center">
