@@ -7,3 +7,5 @@ layout: simple_v1
 ---
 
 ## 关于我
+
+技术栈：Java / Python / Rust 
