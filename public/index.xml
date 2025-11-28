@@ -10,6 +10,80 @@
     <lastBuildDate>Sat, 04 Mar 2017 19:31:34 +0000</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>重启博客杂谈</title>
+      <link>http://localhost:1313/posts/restart_blog/</link>
+      <pubDate>Fri, 28 Nov 2025 23:04:01 +0800</pubDate>
+      
+      <guid>http://localhost:1313/posts/restart_blog/</guid>
+      <description>&lt;h2 class=&#34;relative group&#34;&gt;为什么一直没有更新博客
+    &lt;div id=&#34;为什么一直没有更新博客&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;text-primary-300 dark:text-neutral-700 !no-underline&#34; href=&#34;#%e4%b8%ba%e4%bb%80%e4%b9%88%e4%b8%80%e7%9b%b4%e6%b2%a1%e6%9c%89%e6%9b%b4%e6%96%b0%e5%8d%9a%e5%ae%a2&#34; aria-label=&#34;锚点&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;
+    
+&lt;/h2&gt;
+&lt;p&gt;翻了翻自己的博客记录，最新一篇博客是2018年11月，距离现在已经7年有余了。18年那会才刚毕业，也就是说毕业这么多年，
+博客从来没有更新过。&lt;/p&gt;
+&lt;p&gt;为什么呢？其实最直接的原因就是工作繁忙。经常都要为了思考业务、实现业务挑灯夜战，闲暇下来也是身心疲惫，自然
+是没有什么心思再经营博客。&lt;/p&gt;
+&lt;p&gt;其实呢，时间就像海绵里的水，挤一挤其实还是有的。没有更新的另一个原因是，选题没有什么规划。
+换句话说，也就是没啥&amp;quot;KPI&amp;quot;和&amp;quot;DDL&amp;quot;，那么平时也就不会想起来还有这档事情需要完成，自然就无限期搁置了，毕竟DDL才是第一
+生产力嘛 （手动狗头）&lt;/p&gt;
+
+&lt;h2 class=&#34;relative group&#34;&gt;为什么现在要更新博客
+    &lt;div id=&#34;为什么现在要更新博客&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;text-primary-300 dark:text-neutral-700 !no-underline&#34; href=&#34;#%e4%b8%ba%e4%bb%80%e4%b9%88%e7%8e%b0%e5%9c%a8%e8%a6%81%e6%9b%b4%e6%96%b0%e5%8d%9a%e5%ae%a2&#34; aria-label=&#34;锚点&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;
+    
+&lt;/h2&gt;
+&lt;p&gt;从毕业的青涩，到现在的略有经验，摸滚带爬这么了6年，中间gap了一年，让我重新思考了很多问题。&lt;/p&gt;
+&lt;p&gt;第一，&lt;strong&gt;表达是一种能力&lt;/strong&gt;。能表达出来的知识，才是自己的知识；有总结的经验，才能沉淀为个人的能力。
+表达不是简单地记流水账，是需要解构自己掌握的内容，然后重新组织的。当前大模型的记忆能力吊打所有人，单纯的记录大模型
+做得比任何人都好，类似&lt;code&gt;cheat sheet&lt;/code&gt; 的功能已经被大模型替代了。当然，我这里并非否认&lt;code&gt;cheat sheet&lt;/code&gt;的价值，第一手的
+&lt;code&gt;cheat sheet&lt;/code&gt; 价值依旧，是我们勘误和查询的标杆，但是自己总结和二次记录的，就是被大模型吊打了。因此，只有自己去解构
+掌握的内容，然后按自己的方式重新组织表达，才能沉淀为自己&amp;quot;索引&amp;quot;，更好地引导大模型为自己服务。&lt;/p&gt;
+&lt;p&gt;第二，&lt;strong&gt;沟通是需要成本的&lt;/strong&gt;。毕业后一直在一个团队，大家相处久了，知根知底，自己的能力和业绩团队都很清楚，我无须太多其他的东西
+来证明自己。但是，人不能一直拘泥于一个小圈子，应该去拥抱更广阔的舞台。那么问题来了，当你面对一个陌生的人，他可能是你的面试官，
+可能是你的客户，可能是你的合伙人，你如何让别人了解自己？从毕业后一直工作的团队辞职后，我就面临这个问题，向别人介绍自己很不容易。
+你曾经的业绩，或因为商业机密，或因为行业壁垒，很难沟通到同频，普通只能从通用的领域和通用的知识切入，隔靴搔痒。因此，我打算认真
+编写一下自己的简历，并且一直迭代下去。&lt;/p&gt;
+
+&lt;h2 class=&#34;relative group&#34;&gt;我要表达什么？
+    &lt;div id=&#34;我要表达什么&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;text-primary-300 dark:text-neutral-700 !no-underline&#34; href=&#34;#%e6%88%91%e8%a6%81%e8%a1%a8%e8%be%be%e4%bb%80%e4%b9%88&#34; aria-label=&#34;锚点&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;
+    
+&lt;/h2&gt;
+&lt;p&gt;如果你认真看了以上的内容，你就不难发现，我要表达的有以下三项内容：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;我的简历&lt;/li&gt;
+&lt;li&gt;我的解构的经验和总结&lt;/li&gt;
+&lt;li&gt;我的学习与思考&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 class=&#34;relative group&#34;&gt;我的简历
+    &lt;div id=&#34;我的简历&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;text-primary-300 dark:text-neutral-700 !no-underline&#34; href=&#34;#%e6%88%91%e7%9a%84%e7%ae%80%e5%8e%86&#34; aria-label=&#34;锚点&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;
+    
+&lt;/h3&gt;
+&lt;p&gt;这个这里不赘述了，详细信息见&lt;a
+  href=&#34;http://localhost:1313/resume&#34;&gt;简历&lt;/a&gt;&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
       <title>简历</title>
       <link>http://localhost:1313/page/resume/</link>
       <pubDate>Thu, 20 Nov 2025 00:00:00 +0000</pubDate>
@@ -23,7 +97,8 @@
         &lt;a class=&#34;text-primary-300 dark:text-neutral-700 !no-underline&#34; href=&#34;#%e5%85%b3%e4%ba%8e%e6%88%91&#34; aria-label=&#34;锚点&#34;&gt;#&lt;/a&gt;
     &lt;/span&gt;
     
-&lt;/h2&gt;</description>
+&lt;/h2&gt;
+&lt;p&gt;技术栈：Java / Python / Rust&lt;/p&gt;</description>
       
     </item>
     

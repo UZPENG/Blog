@@ -20,9 +20,9 @@ showScrollToTop = true
 
 [homepage]
 layout = "profile"
-showRecent = false
-showRecentItems = 5
-showMoreLink = false
+showRecent = true
+showRecentItems = 1
+showMoreLink = true
 showMoreLinkDest = "/posts"
 cardView = true
 cardViewScreenWidth = false

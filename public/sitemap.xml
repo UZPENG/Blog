@@ -3,6 +3,12 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
+    <loc>http://localhost:1313/posts/restart_blog/</loc>
+    <lastmod>2025-11-28T23:04:01+08:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>http://localhost:1313/page/resume/</loc>
     <lastmod>2025-11-20T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
@@ -15,13 +21,13 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/posts/concurrent/</loc>
-    <lastmod>2018-11-03T00:00:00+00:00</lastmod>
+    <loc>http://localhost:1313/posts/</loc>
+    <lastmod>2025-11-28T23:04:01+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/posts/</loc>
+    <loc>http://localhost:1313/posts/concurrent/</loc>
     <lastmod>2018-11-03T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
