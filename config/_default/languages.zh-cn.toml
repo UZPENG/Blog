@@ -3,6 +3,7 @@ languageName = "Chinese"
 weight = 1
 title = "UZPENG"
 contentDir = 'content/zh-cn'
+hasCJKLanguage = true
 
 
 [params]
