@@ -38,6 +38,7 @@ showBreadcrumbs = true
 showDraftLabel = true
 showEdit = true
 editAppendPath = true
+editURL = "https://github.com/UZPENG/Blog/edit/main/content/zh-cn"
 seriesOpened = false
 showHeadingAnchors = true
 showPagination = true
@@ -73,3 +74,9 @@ excludedKinds = []
 
 [taxonomy]
 showTermCount = true
+
+[repo]
+  url = "https://github.com/UZPENG/Blog"
+  branch = "main"
+  editBranch = "main"
+  contentFolder = "content"
