@@ -49,7 +49,8 @@
   <meta property="og:url" content="http://localhost:1313/posts/mail/">
   <meta property="og:site_name" content="UZPENG">
   <meta property="og:title" content="postfix&#43;dovecot搭建自己的邮件服务器">
-  <meta property="og:description" content="前言#我对于邮箱理解，在很长一段时间里，都是qq邮箱、163邮箱、126邮箱等等的各种第三方邮箱。这些邮箱都是注册一下，然后从web页面登陆进去，就可以收发邮件了。后来上了计算机网络这门课，学习到了有关于邮件的一些协议比如SMTP、POP3、IMAP。但是，当时也只是知道有这几种协议，也没有去实践过，现在想起来真的觉得计算机各方面知识自己都实践得太少了。而且最近在学习java web开发，想着实现一个邮件发送验证码的功能，同时又想拥有一个自己的域名邮箱，所以就决定配置一下邮件服务器。">
+  <meta property="og:description" content="前言#历史博客已归档，关于编程武器的解读和导读详情见《漫谈博客来时路》
+我对于邮箱理解，在很长一段时间里，都是qq邮箱、163邮箱、126邮箱等等的各种第三方邮箱。这些邮箱都是注册一下，然后从web页面登陆进去，就可以收发邮件了。后来上了计算机网络这门课，学习到了有关于邮件的一些协议比如SMTP、POP3、IMAP。但是，当时也只是知道有这几种协议，也没有去实践过，现在想起来真的觉得计算机各方面知识自己都实践得太少了。而且最近在学习java web开发，想着实现一个邮件发送验证码的功能，同时又想拥有一个自己的域名邮箱，所以就决定配置一下邮件服务器。">
   <meta property="og:locale" content="zh">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -60,7 +61,8 @@
   
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="postfix&#43;dovecot搭建自己的邮件服务器">
-  <meta name="twitter:description" content="前言#我对于邮箱理解，在很长一段时间里，都是qq邮箱、163邮箱、126邮箱等等的各种第三方邮箱。这些邮箱都是注册一下，然后从web页面登陆进去，就可以收发邮件了。后来上了计算机网络这门课，学习到了有关于邮件的一些协议比如SMTP、POP3、IMAP。但是，当时也只是知道有这几种协议，也没有去实践过，现在想起来真的觉得计算机各方面知识自己都实践得太少了。而且最近在学习java web开发，想着实现一个邮件发送验证码的功能，同时又想拥有一个自己的域名邮箱，所以就决定配置一下邮件服务器。">
+  <meta name="twitter:description" content="前言#历史博客已归档，关于编程武器的解读和导读详情见《漫谈博客来时路》
+我对于邮箱理解，在很长一段时间里，都是qq邮箱、163邮箱、126邮箱等等的各种第三方邮箱。这些邮箱都是注册一下，然后从web页面登陆进去，就可以收发邮件了。后来上了计算机网络这门课，学习到了有关于邮件的一些协议比如SMTP、POP3、IMAP。但是，当时也只是知道有这几种协议，也没有去实践过，现在想起来真的觉得计算机各方面知识自己都实践得太少了。而且最近在学习java web开发，想着实现一个邮件发送验证码的功能，同时又想拥有一个自己的域名邮箱，所以就决定配置一下邮件服务器。">
 
   
   
@@ -212,7 +214,7 @@
     "name": "postfix\u002bdovecot搭建自己的邮件服务器",
     "headline": "postfix\u002bdovecot搭建自己的邮件服务器",
     
-    "abstract": "\u003ch2 class=\u0022relative group\u0022\u003e前言\r\n    \u003cdiv id=\u0022前言\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\r\n    \r\n    \u003cspan\r\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none\u0022\u003e\r\n        \u003ca class=\u0022text-primary-300 dark:text-neutral-700 !no-underline\u0022 href=\u0022#%e5%89%8d%e8%a8%80\u0022 aria-label=\u0022锚点\u0022\u003e#\u003c\/a\u003e\r\n    \u003c\/span\u003e\r\n    \r\n\u003c\/h2\u003e\r\n\u003cp\u003e我对于邮箱理解，在很长一段时间里，都是qq邮箱、163邮箱、126邮箱等等的各种第三方邮箱。这些邮箱都是注册一下，然后从web页面登陆进去，就可以收发邮件了。后来上了计算机网络这门课，学习到了有关于邮件的一些协议比如SMTP、POP3、IMAP。但是，当时也只是知道有这几种协议，也没有去实践过，现在想起来真的觉得计算机各方面知识自己都实践得太少了。而且最近在学习java web开发，想着实现一个邮件发送验证码的功能，同时又想拥有一个自己的域名邮箱，所以就决定配置一下邮件服务器。\u003c\/p\u003e",
+    "abstract": "\u003ch2 class=\u0022relative group\u0022\u003e前言\r\n    \u003cdiv id=\u0022前言\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\r\n    \r\n    \u003cspan\r\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none\u0022\u003e\r\n        \u003ca class=\u0022text-primary-300 dark:text-neutral-700 !no-underline\u0022 href=\u0022#%e5%89%8d%e8%a8%80\u0022 aria-label=\u0022锚点\u0022\u003e#\u003c\/a\u003e\r\n    \u003c\/span\u003e\r\n    \r\n\u003c\/h2\u003e\r\n\u003cblockquote\u003e\n\u003cp\u003e历史博客已归档，关于编程武器的解读和导读详情见\u003ca\r\n  href=\u0022\/posts\/talk_about_my_old_blog\u0022\u003e《漫谈博客来时路》\u003c\/a\u003e\u003c\/p\u003e\n\u003c\/blockquote\u003e\n\u003cp\u003e我对于邮箱理解，在很长一段时间里，都是qq邮箱、163邮箱、126邮箱等等的各种第三方邮箱。这些邮箱都是注册一下，然后从web页面登陆进去，就可以收发邮件了。后来上了计算机网络这门课，学习到了有关于邮件的一些协议比如SMTP、POP3、IMAP。但是，当时也只是知道有这几种协议，也没有去实践过，现在想起来真的觉得计算机各方面知识自己都实践得太少了。而且最近在学习java web开发，想着实现一个邮件发送验证码的功能，同时又想拥有一个自己的域名邮箱，所以就决定配置一下邮件服务器。\u003c\/p\u003e",
     "inLanguage": "zh",
     "url" : "http://localhost:1313/posts/mail/",
     "author" : {
@@ -228,7 +230,7 @@
     "keywords": ["网络"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "1417"
+    "wordCount": "1449"
   }]
   </script>
 
@@ -634,7 +636,7 @@
   <div class="flex flex-row flex-wrap items-center">
     
     
-      <time datetime="2018-03-06T00:00:00&#43;00:00">2018-03-06</time><span class="px-2 text-primary-500">&middot;</span><span>1417 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">3 分钟</span><span class="px-2 text-primary-500">&middot;</span>
+      <time datetime="2018-03-06T00:00:00&#43;00:00">2018-03-06</time><span class="px-2 text-primary-500">&middot;</span><span>1449 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">3 分钟</span><span class="px-2 text-primary-500">&middot;</span>
 
 
   
@@ -836,6 +838,10 @@
     </span>
     
 </h2>
+<blockquote>
+<p>历史博客已归档，关于编程武器的解读和导读详情见<a
+  href="/posts/talk_about_my_old_blog">《漫谈博客来时路》</a></p>
+</blockquote>
 <p>我对于邮箱理解，在很长一段时间里，都是qq邮箱、163邮箱、126邮箱等等的各种第三方邮箱。这些邮箱都是注册一下，然后从web页面登陆进去，就可以收发邮件了。后来上了计算机网络这门课，学习到了有关于邮件的一些协议比如SMTP、POP3、IMAP。但是，当时也只是知道有这几种协议，也没有去实践过，现在想起来真的觉得计算机各方面知识自己都实践得太少了。而且最近在学习java web开发，想着实现一个邮件发送验证码的功能，同时又想拥有一个自己的域名邮箱，所以就决定配置一下邮件服务器。</p>
 
 <h2 class="relative group">技术框架
@@ -1298,7 +1304,7 @@ Mar  3 14:42:35 uzpeng dovecot: imap-login: Login: user=&lt;liu&gt;, method=PLAI
     
       <p class="text-sm text-neutral-500 dark:text-neutral-400">
           &copy;
-          2025
+          2026
           UZPENG
       </p>
     

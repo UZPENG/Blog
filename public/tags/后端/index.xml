@@ -6,7 +6,7 @@
     <description>Recent content in 后端 on UZPENG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <copyright>© 2025 UZPENG</copyright>
+    <copyright>© 2026 UZPENG</copyright>
     <lastBuildDate>Wed, 20 Jun 2018 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/%E5%90%8E%E7%AB%AF/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
@@ -24,6 +24,10 @@
     &lt;/span&gt;
     
 &lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;历史博客已归档，关于web架构的解读和导读详情见&lt;a
+  href=&#34;http://localhost:1313/posts/talk_about_my_old_blog&#34;&gt;《漫谈博客来时路》&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;毕业设计做了一个签到系统的服务端，架构使用的Java栈的传统架构，也是最简单的架构。这个架构主要用Nginx做反向代理和负载均衡（我的项目没有使用到这一块），Tomcat作为Servlet的容器，MySQL作为数据库。项目也比较基础，没有太多难点，但是在项目部署过程当中还是遇到了一些问题，所以想着把部署的过程及记录下来，方便自己查看。&lt;/p&gt;</description>
       
     </item>

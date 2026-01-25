@@ -49,7 +49,8 @@
   <meta property="og:url" content="http://localhost:1313/posts/crawl/">
   <meta property="og:site_name" content="UZPENG">
   <meta property="og:title" content="爬虫实践--淘数据网站的数据爬取和存储">
-  <meta property="og:description" content="背景#最近女朋友需要利用tableau来做数据可视化的作业，要做数据可视化，那首先可定得要有数据。她们打算用八爪鱼等爬虫软件来抓取数据，结果没成功，原因不明。然后跟我吐槽了一下这个事情，刚好我最近也要学爬虫，本着项目驱动学习的理念，就直接选择了这个项目来练手了。
+  <meta property="og:description" content="背景#历史博客已归档，关于爬虫的解读和导读详情见《漫谈博客来时路》
+最近女朋友需要利用tableau来做数据可视化的作业，要做数据可视化，那首先可定得要有数据。她们打算用八爪鱼等爬虫软件来抓取数据，结果没成功，原因不明。然后跟我吐槽了一下这个事情，刚好我最近也要学爬虫，本着项目驱动学习的理念，就直接选择了这个项目来练手了。
 准备工作#编程环境：
 IntelliJ IDEA 2017.1.5Build #IU-171.4694.70, built on July 4, 2017Licensed to weaponJRE: 1.8.0_112-release-736-b21 amd64JVM: OpenJDK 64-Bit Server VM by JetBrains s.r.oWindows 10 10.0 编程环境如上所示，因为我Java语言比较熟悉，所以编程语言选择了Java。虽然Java做爬虫语法上面比较累赘，但是Python还没学会，就凑合着用Java写了。">
   <meta property="og:locale" content="zh">
@@ -62,7 +63,8 @@ IntelliJ IDEA 2017.1.5Build #IU-171.4694.70, built on July 4, 2017Licensed to 
   
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="爬虫实践--淘数据网站的数据爬取和存储">
-  <meta name="twitter:description" content="背景#最近女朋友需要利用tableau来做数据可视化的作业，要做数据可视化，那首先可定得要有数据。她们打算用八爪鱼等爬虫软件来抓取数据，结果没成功，原因不明。然后跟我吐槽了一下这个事情，刚好我最近也要学爬虫，本着项目驱动学习的理念，就直接选择了这个项目来练手了。
+  <meta name="twitter:description" content="背景#历史博客已归档，关于爬虫的解读和导读详情见《漫谈博客来时路》
+最近女朋友需要利用tableau来做数据可视化的作业，要做数据可视化，那首先可定得要有数据。她们打算用八爪鱼等爬虫软件来抓取数据，结果没成功，原因不明。然后跟我吐槽了一下这个事情，刚好我最近也要学爬虫，本着项目驱动学习的理念，就直接选择了这个项目来练手了。
 准备工作#编程环境：
 IntelliJ IDEA 2017.1.5Build #IU-171.4694.70, built on July 4, 2017Licensed to weaponJRE: 1.8.0_112-release-736-b21 amd64JVM: OpenJDK 64-Bit Server VM by JetBrains s.r.oWindows 10 10.0 编程环境如上所示，因为我Java语言比较熟悉，所以编程语言选择了Java。虽然Java做爬虫语法上面比较累赘，但是Python还没学会，就凑合着用Java写了。">
 
@@ -216,7 +218,7 @@ IntelliJ IDEA 2017.1.5Build #IU-171.4694.70, built on July 4, 2017Licensed to 
     "name": "爬虫实践--淘数据网站的数据爬取和存储",
     "headline": "爬虫实践--淘数据网站的数据爬取和存储",
     
-    "abstract": "\u003ch2 class=\u0022relative group\u0022\u003e背景\r\n    \u003cdiv id=\u0022背景\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\r\n    \r\n    \u003cspan\r\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none\u0022\u003e\r\n        \u003ca class=\u0022text-primary-300 dark:text-neutral-700 !no-underline\u0022 href=\u0022#%e8%83%8c%e6%99%af\u0022 aria-label=\u0022锚点\u0022\u003e#\u003c\/a\u003e\r\n    \u003c\/span\u003e\r\n    \r\n\u003c\/h2\u003e\r\n\u003cp\u003e最近女朋友需要利用\u003ccode\u003etableau\u003c\/code\u003e来做数据可视化的作业，要做数据可视化，那首先可定得要有数据。她们打算用八爪鱼等爬虫软件来抓取数据，结果没成功，原因不明。然后跟我吐槽了一下这个事情，刚好我最近也要学爬虫，本着项目驱动学习的理念，就直接选择了这个项目来练手了。\u003c\/p\u003e\n\r\n\u003ch2 class=\u0022relative group\u0022\u003e准备工作\r\n    \u003cdiv id=\u0022准备工作\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\r\n    \r\n    \u003cspan\r\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none\u0022\u003e\r\n        \u003ca class=\u0022text-primary-300 dark:text-neutral-700 !no-underline\u0022 href=\u0022#%e5%87%86%e5%a4%87%e5%b7%a5%e4%bd%9c\u0022 aria-label=\u0022锚点\u0022\u003e#\u003c\/a\u003e\r\n    \u003c\/span\u003e\r\n    \r\n\u003c\/h2\u003e\r\n\u003cp\u003e编程环境：\u003c\/p\u003e\n\u003cpre tabindex=\u00220\u0022\u003e\u003ccode\u003eIntelliJ IDEA 2017.1.5\r\nBuild #IU-171.4694.70, built on July 4, 2017\r\nLicensed to weapon\r\nJRE: 1.8.0_112-release-736-b21 amd64\r\nJVM: OpenJDK 64-Bit Server VM by JetBrains s.r.o\r\nWindows 10 10.0\n\u003c\/code\u003e\u003c\/pre\u003e\u003cp\u003e编程环境如上所示，因为我Java语言比较熟悉，所以编程语言选择了Java。虽然Java做爬虫语法上面比较累赘，但是Python还没学会，就凑合着用Java写了。\u003c\/p\u003e",
+    "abstract": "\u003ch2 class=\u0022relative group\u0022\u003e背景\r\n    \u003cdiv id=\u0022背景\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\r\n    \r\n    \u003cspan\r\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none\u0022\u003e\r\n        \u003ca class=\u0022text-primary-300 dark:text-neutral-700 !no-underline\u0022 href=\u0022#%e8%83%8c%e6%99%af\u0022 aria-label=\u0022锚点\u0022\u003e#\u003c\/a\u003e\r\n    \u003c\/span\u003e\r\n    \r\n\u003c\/h2\u003e\r\n\u003cblockquote\u003e\n\u003cp\u003e历史博客已归档，关于爬虫的解读和导读详情见\u003ca\r\n  href=\u0022\/posts\/talk_about_my_old_blog\u0022\u003e《漫谈博客来时路》\u003c\/a\u003e\u003c\/p\u003e\n\u003c\/blockquote\u003e\n\u003cp\u003e最近女朋友需要利用\u003ccode\u003etableau\u003c\/code\u003e来做数据可视化的作业，要做数据可视化，那首先可定得要有数据。她们打算用八爪鱼等爬虫软件来抓取数据，结果没成功，原因不明。然后跟我吐槽了一下这个事情，刚好我最近也要学爬虫，本着项目驱动学习的理念，就直接选择了这个项目来练手了。\u003c\/p\u003e\n\r\n\u003ch2 class=\u0022relative group\u0022\u003e准备工作\r\n    \u003cdiv id=\u0022准备工作\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\r\n    \r\n    \u003cspan\r\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none\u0022\u003e\r\n        \u003ca class=\u0022text-primary-300 dark:text-neutral-700 !no-underline\u0022 href=\u0022#%e5%87%86%e5%a4%87%e5%b7%a5%e4%bd%9c\u0022 aria-label=\u0022锚点\u0022\u003e#\u003c\/a\u003e\r\n    \u003c\/span\u003e\r\n    \r\n\u003c\/h2\u003e\r\n\u003cp\u003e编程环境：\u003c\/p\u003e\n\u003cpre tabindex=\u00220\u0022\u003e\u003ccode\u003eIntelliJ IDEA 2017.1.5\r\nBuild #IU-171.4694.70, built on July 4, 2017\r\nLicensed to weapon\r\nJRE: 1.8.0_112-release-736-b21 amd64\r\nJVM: OpenJDK 64-Bit Server VM by JetBrains s.r.o\r\nWindows 10 10.0\n\u003c\/code\u003e\u003c\/pre\u003e\u003cp\u003e编程环境如上所示，因为我Java语言比较熟悉，所以编程语言选择了Java。虽然Java做爬虫语法上面比较累赘，但是Python还没学会，就凑合着用Java写了。\u003c\/p\u003e",
     "inLanguage": "zh",
     "url" : "http://localhost:1313/posts/crawl/",
     "author" : {
@@ -232,7 +234,7 @@ IntelliJ IDEA 2017.1.5Build #IU-171.4694.70, built on July 4, 2017Licensed to 
     "keywords": ["网络"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "3704"
+    "wordCount": "3734"
   }]
   </script>
 
@@ -638,7 +640,7 @@ IntelliJ IDEA 2017.1.5Build #IU-171.4694.70, built on July 4, 2017Licensed to 
   <div class="flex flex-row flex-wrap items-center">
     
     
-      <time datetime="2017-12-26T00:00:00&#43;00:00">2017-12-26</time><span class="px-2 text-primary-500">&middot;</span><span>3704 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">8 分钟</span><span class="px-2 text-primary-500">&middot;</span>
+      <time datetime="2017-12-26T00:00:00&#43;00:00">2017-12-26</time><span class="px-2 text-primary-500">&middot;</span><span>3734 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">8 分钟</span><span class="px-2 text-primary-500">&middot;</span>
 
 
   
@@ -842,6 +844,10 @@ IntelliJ IDEA 2017.1.5Build #IU-171.4694.70, built on July 4, 2017Licensed to 
     </span>
     
 </h2>
+<blockquote>
+<p>历史博客已归档，关于爬虫的解读和导读详情见<a
+  href="/posts/talk_about_my_old_blog">《漫谈博客来时路》</a></p>
+</blockquote>
 <p>最近女朋友需要利用<code>tableau</code>来做数据可视化的作业，要做数据可视化，那首先可定得要有数据。她们打算用八爪鱼等爬虫软件来抓取数据，结果没成功，原因不明。然后跟我吐槽了一下这个事情，刚好我最近也要学爬虫，本着项目驱动学习的理念，就直接选择了这个项目来练手了。</p>
 
 <h2 class="relative group">准备工作
@@ -1446,7 +1452,7 @@ PS：吐槽一下，其实这是他们后台的一个bug，他们的页面也无
     
       <p class="text-sm text-neutral-500 dark:text-neutral-400">
           &copy;
-          2025
+          2026
           UZPENG
       </p>
     
