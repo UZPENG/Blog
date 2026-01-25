@@ -6,6 +6,8 @@ tags:
 ---
 ## 用户初始化
 
+> 历史博客已归档，关于编程武器的解读和导读详情见[《漫谈博客来时路》](/posts/talk_about_my_old_blog)
+
 git config --global user.name `<your name>`  
 git config --global user.password `<your password>`  
 ssh-keygen 生成秘钥  
