@@ -15,8 +15,8 @@
 
   
   
-    <title>scrapy&#43;selenium&#43;headless-chrome爬虫总结 &middot; UZPENG</title>
-    <meta name="title" content="scrapy&#43;selenium&#43;headless-chrome爬虫总结 &middot; UZPENG">
+    <title>漫谈博客来时路 &middot; UZPENG</title>
+    <meta name="title" content="漫谈博客来时路 &middot; UZPENG">
   
 
   
@@ -24,11 +24,9 @@
     <meta name="description" content="互利互惠，合作共赢 ; Help each others, Win together.">
   
   
-    <meta name="keywords" content="网络,爬虫,">
   
   
-  
-  <link rel="canonical" href="http://localhost:1313/posts/scrapy/">
+  <link rel="canonical" href="http://localhost:1313/posts/talk_about_my_old_blog/">
   
 
   
@@ -46,30 +44,20 @@
   
 
   
-  <meta property="og:url" content="http://localhost:1313/posts/scrapy/">
+  <meta property="og:url" content="http://localhost:1313/posts/talk_about_my_old_blog/">
   <meta property="og:site_name" content="UZPENG">
-  <meta property="og:title" content="scrapy&#43;selenium&#43;headless-chrome爬虫总结">
-  <meta property="og:description" content="前言#历史博客已归档，关于爬虫的解读和导读详情见《漫谈博客来时路》
-久闻scrapy大名，一直想找机会了解一下这框架，在兴趣的驱动下学习了一下简单的scrapy的使用。虽然上次用java做的一个爬虫，但是后来觉得也算不上什么爬虫吧，只能算模拟http请求和http响应的处理、json的序列化和反序列化、excel文件的读取和写入而已，很多爬虫需要处理的东西也并没有处理。 但是scrapy就不一样了，作为一个成熟的爬虫框架，scrapy有以下几点优势。
-内嵌了CSS选择器和XPath解析器用于提取HTML/XML的信息。 提供了一个shell控制台用于测试css和xpath的表达式。 良好的架构设计：middleware、pipeline。 成熟的请求调度器。 备注: 以上特性来自于scrapy官方文档
-scrapy还有很多其他的特性，我在实践中比较常用的就是上面这几项。
-另外，上次爬取动态页面的时候，采取的策略是分析AJAX请求的URL然后自己构造请求。这种方法比较麻烦，需要自己去分析请求，这次我们采用selenium&#43;headless-chrome，以浏览器自动化的方式爬取数据。">
+  <meta property="og:title" content="漫谈博客来时路">
+  <meta property="og:description" content="前言#在重启博客之际，回顾自己7年前的老博客，不由心生感慨：“撒老师，我没白活！”">
   <meta property="og:locale" content="zh">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2018-03-05T00:00:00+00:00">
-    <meta property="article:modified_time" content="2018-03-05T00:00:00+00:00">
-    <meta property="article:tag" content="网络">
-    <meta property="article:tag" content="爬虫">
+    <meta property="article:published_time" content="2026-01-25T07:47:20+08:00">
+    <meta property="article:modified_time" content="2026-01-25T07:47:20+08:00">
 
   
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="scrapy&#43;selenium&#43;headless-chrome爬虫总结">
-  <meta name="twitter:description" content="前言#历史博客已归档，关于爬虫的解读和导读详情见《漫谈博客来时路》
-久闻scrapy大名，一直想找机会了解一下这框架，在兴趣的驱动下学习了一下简单的scrapy的使用。虽然上次用java做的一个爬虫，但是后来觉得也算不上什么爬虫吧，只能算模拟http请求和http响应的处理、json的序列化和反序列化、excel文件的读取和写入而已，很多爬虫需要处理的东西也并没有处理。 但是scrapy就不一样了，作为一个成熟的爬虫框架，scrapy有以下几点优势。
-内嵌了CSS选择器和XPath解析器用于提取HTML/XML的信息。 提供了一个shell控制台用于测试css和xpath的表达式。 良好的架构设计：middleware、pipeline。 成熟的请求调度器。 备注: 以上特性来自于scrapy官方文档
-scrapy还有很多其他的特性，我在实践中比较常用的就是上面这几项。
-另外，上次爬取动态页面的时候，采取的策略是分析AJAX请求的URL然后自己构造请求。这种方法比较麻烦，需要自己去分析请求，这次我们采用selenium&#43;headless-chrome，以浏览器自动化的方式爬取数据。">
+  <meta name="twitter:title" content="漫谈博客来时路">
+  <meta name="twitter:description" content="前言#在重启博客之际，回顾自己7年前的老博客，不由心生感慨：“撒老师，我没白活！”">
 
   
   
@@ -167,6 +155,16 @@ scrapy还有很多其他的特性，我在实践中比较常用的就是上面�
 
 
 
+  
+  
+  
+  
+  <script
+    defer
+    type="text/javascript"
+    src="/js/mermaid.bundle.62a05f6909b23ed64b2e8ec427722eeb4c8f952edc802d92004aa08e7f45a1597104d017ccecad9b537b159c079fb8af10c57c8083bada28caf5424da953eaa3.js"
+    integrity="sha512-YqBfaQmyPtZLLo7EJ3Iu60yPlS7cgC2SAEqgjn9FoVlxBNAXzOytm1N7FZwHn7ivEMV8gIO62ijK9UJNqVPqow=="></script>
+
 
 
 
@@ -218,26 +216,26 @@ scrapy还有很多其他的特性，我在实践中比较常用的就是上面�
     "@context": "https://schema.org",
     "@type": "Article",
     "articleSection": "Posts",
-    "name": "scrapy\u002bselenium\u002bheadless-chrome爬虫总结",
-    "headline": "scrapy\u002bselenium\u002bheadless-chrome爬虫总结",
+    "name": "漫谈博客来时路",
+    "headline": "漫谈博客来时路",
     
-    "abstract": "\u003ch2 class=\u0022relative group\u0022\u003e前言\r\n    \u003cdiv id=\u0022前言\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\r\n    \r\n    \u003cspan\r\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none\u0022\u003e\r\n        \u003ca class=\u0022text-primary-300 dark:text-neutral-700 !no-underline\u0022 href=\u0022#%e5%89%8d%e8%a8%80\u0022 aria-label=\u0022锚点\u0022\u003e#\u003c\/a\u003e\r\n    \u003c\/span\u003e\r\n    \r\n\u003c\/h2\u003e\r\n\u003cblockquote\u003e\n\u003cp\u003e历史博客已归档，关于爬虫的解读和导读详情见\u003ca\r\n  href=\u0022\/posts\/talk_about_my_old_blog\u0022\u003e《漫谈博客来时路》\u003c\/a\u003e\u003c\/p\u003e\n\u003c\/blockquote\u003e\n\u003cp\u003e久闻\u003ccode\u003escrapy\u003c\/code\u003e大名，一直想找机会了解一下这框架，在兴趣的驱动下学习了一下简单的\u003ccode\u003escrapy\u003c\/code\u003e的使用。虽然上次用java做的一个爬虫，但是后来觉得也算不上什么爬虫吧，只能算模拟\u003ccode\u003ehttp\u003c\/code\u003e请求和\u003ccode\u003ehttp\u003c\/code\u003e响应的处理、\u003ccode\u003ejson\u003c\/code\u003e的序列化和反序列化、excel文件的读取和写入而已，很多爬虫需要处理的东西也并没有处理。\n但是\u003ccode\u003escrapy\u003c\/code\u003e就不一样了，作为一个成熟的爬虫框架，scrapy有以下几点优势。\u003c\/p\u003e\n\u003col\u003e\n\u003cli\u003e内嵌了CSS选择器和XPath解析器用于提取HTML\/XML的信息。\u003c\/li\u003e\n\u003cli\u003e提供了一个shell控制台用于测试css和xpath的表达式。\u003c\/li\u003e\n\u003cli\u003e良好的架构设计：middleware、pipeline。\u003c\/li\u003e\n\u003cli\u003e成熟的请求调度器。\u003c\/li\u003e\n\u003c\/ol\u003e\n\u003cblockquote\u003e\n\u003cp\u003e备注: 以上特性来自于\u003ca\r\n  href=\u0022https:\/\/doc.scrapy.org\/en\/latest\/intro\/overview.html\u0022\r\n    target=\u0022_blank\u0022\r\n  \u003escrapy官方文档\u003c\/a\u003e\u003c\/p\u003e\n\u003c\/blockquote\u003e\n\u003cp\u003escrapy还有很多其他的特性，我在实践中比较常用的就是上面这几项。\u003c\/p\u003e\n\u003cp\u003e另外，上次爬取动态页面的时候，采取的策略是分析AJAX请求的URL然后自己构造请求。这种方法比较麻烦，需要自己去分析请求，这次我们采用selenium\u002bheadless-chrome，以浏览器自动化的方式爬取数据。\u003c\/p\u003e",
+    "abstract": "\u003ch2 class=\u0022relative group\u0022\u003e前言\r\n    \u003cdiv id=\u0022前言\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\r\n    \r\n    \u003cspan\r\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none\u0022\u003e\r\n        \u003ca class=\u0022text-primary-300 dark:text-neutral-700 !no-underline\u0022 href=\u0022#%e5%89%8d%e8%a8%80\u0022 aria-label=\u0022锚点\u0022\u003e#\u003c\/a\u003e\r\n    \u003c\/span\u003e\r\n    \r\n\u003c\/h2\u003e\r\n\u003cp\u003e在重启博客之际，回顾自己7年前的老博客，不由心生感慨：“撒老师，我没白活！”\u003c\/p\u003e",
     "inLanguage": "zh",
-    "url" : "http://localhost:1313/posts/scrapy/",
+    "url" : "http://localhost:1313/posts/talk_about_my_old_blog/",
     "author" : {
       "@type": "Person",
       "name": "UZPENG"
     },
-    "copyrightYear": "2018",
-    "dateCreated": "2018-03-05T00:00:00\u002b00:00",
-    "datePublished": "2018-03-05T00:00:00\u002b00:00",
+    "copyrightYear": "2026",
+    "dateCreated": "2026-01-25T07:47:20\u002b08:00",
+    "datePublished": "2026-01-25T07:47:20\u002b08:00",
     
-    "dateModified": "2018-03-05T00:00:00\u002b00:00",
+    "dateModified": "2026-01-25T07:47:20\u002b08:00",
     
-    "keywords": ["网络","爬虫"],
+    
     
     "mainEntityOfPage": "true",
-    "wordCount": "2968"
+    "wordCount": "3456"
   }]
   </script>
 
@@ -579,8 +577,8 @@ scrapy还有很多其他的特性，我在实践中比较常用的就是上面�
 
   
   <li class="hidden">
-    <a class="hover:underline decoration-neutral-300 dark:underline-neutral-600" href="/posts/scrapy/"
-      >scrapy&#43;selenium&#43;headless-chrome爬虫总结</a
+    <a class="hover:underline decoration-neutral-300 dark:underline-neutral-600" href="/posts/talk_about_my_old_blog/"
+      >漫谈博客来时路</a
     ><span class="px-1 text-primary-500">/</span>
   </li>
 
@@ -589,7 +587,7 @@ scrapy还有很多其他的特性，我在实践中比较常用的就是上面�
 
       
       <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-        scrapy+selenium+headless-chrome爬虫总结
+        漫谈博客来时路
       </h1>
       <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
         
@@ -643,7 +641,7 @@ scrapy还有很多其他的特性，我在实践中比较常用的就是上面�
   <div class="flex flex-row flex-wrap items-center">
     
     
-      <time datetime="2018-03-05T00:00:00&#43;00:00">2018-03-05</time><span class="px-2 text-primary-500">&middot;</span><span>2968 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">6 分钟</span><span class="px-2 text-primary-500">&middot;</span>
+      <time datetime="2026-01-25T07:47:20&#43;08:00">2026-01-25</time><span class="px-2 text-primary-500">&middot;</span><span>3456 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">7 分钟</span><span class="px-2 text-primary-500">&middot;</span>
 
 
   
@@ -653,7 +651,7 @@ scrapy还有很多其他的特性，我在实践中比较常用的就是上面�
 
 <span class="mb-[2px]">
   <a
-    href="https://github.com/UZPENG/Blog/edit/main/content/zh-cn/posts/scrapy.md"
+    href="https://github.com/UZPENG/Blog/edit/main/content/zh-cn/posts/talk_about_my_old_blog.md"
     class="text-lg hover:text-primary-500"
     rel="noopener noreferrer"
     target="_blank"
@@ -783,12 +781,31 @@ scrapy还有很多其他的特性，我在实践中比较常用的就是上面�
     <nav id="TableOfContents">
   <ul>
     <li><a href="#前言">前言</a></li>
-    <li><a href="#技术框架">技术框架</a></li>
-    <li><a href="#数据流">数据流</a></li>
-    <li><a href="#项目实战">项目实战</a></li>
-    <li><a href="#反爬虫与反反爬虫">反爬虫与反反爬虫</a></li>
-    <li><a href="#浏览器自动化技术">浏览器自动化技术</a></li>
-    <li><a href="#结语">&ldquo;结语&rdquo;</a></li>
+    <li><a href="#编程武器类">编程武器类</a>
+      <ul>
+        <li><a href="#关于git">关于git</a></li>
+        <li><a href="#软件的集锦">软件的集锦</a></li>
+        <li><a href="#linux的命令">Linux的命令</a></li>
+        <li><a href="#个人域名的邮箱">个人域名的邮箱</a></li>
+        <li><a href="#锐评">锐评</a></li>
+      </ul>
+    </li>
+    <li><a href="#web架构">web架构</a>
+      <ul>
+        <li><a href="#高性能">高性能</a></li>
+        <li><a href="#部署模式">部署模式</a></li>
+        <li><a href="#锐评-1">锐评</a></li>
+      </ul>
+    </li>
+    <li><a href="#爬虫">爬虫</a>
+      <ul>
+        <li><a href="#http协议">HTTP协议</a></li>
+        <li><a href="#web前端">web前端</a></li>
+        <li><a href="#scrapy">scrapy</a></li>
+        <li><a href="#锐评-2">锐评</a></li>
+      </ul>
+    </li>
+    <li><a href="#结语">结语</a></li>
   </ul>
 </nav>
   </div>
@@ -803,12 +820,31 @@ scrapy还有很多其他的特性，我在实践中比较常用的就是上面�
     <nav id="TableOfContents">
   <ul>
     <li><a href="#前言">前言</a></li>
-    <li><a href="#技术框架">技术框架</a></li>
-    <li><a href="#数据流">数据流</a></li>
-    <li><a href="#项目实战">项目实战</a></li>
-    <li><a href="#反爬虫与反反爬虫">反爬虫与反反爬虫</a></li>
-    <li><a href="#浏览器自动化技术">浏览器自动化技术</a></li>
-    <li><a href="#结语">&ldquo;结语&rdquo;</a></li>
+    <li><a href="#编程武器类">编程武器类</a>
+      <ul>
+        <li><a href="#关于git">关于git</a></li>
+        <li><a href="#软件的集锦">软件的集锦</a></li>
+        <li><a href="#linux的命令">Linux的命令</a></li>
+        <li><a href="#个人域名的邮箱">个人域名的邮箱</a></li>
+        <li><a href="#锐评">锐评</a></li>
+      </ul>
+    </li>
+    <li><a href="#web架构">web架构</a>
+      <ul>
+        <li><a href="#高性能">高性能</a></li>
+        <li><a href="#部署模式">部署模式</a></li>
+        <li><a href="#锐评-1">锐评</a></li>
+      </ul>
+    </li>
+    <li><a href="#爬虫">爬虫</a>
+      <ul>
+        <li><a href="#http协议">HTTP协议</a></li>
+        <li><a href="#web前端">web前端</a></li>
+        <li><a href="#scrapy">scrapy</a></li>
+        <li><a href="#锐评-2">锐评</a></li>
+      </ul>
+    </li>
+    <li><a href="#结语">结语</a></li>
   </ul>
 </nav>
   </div>
@@ -826,7 +862,8 @@ scrapy还有很多其他的特性，我在实践中比较常用的就是上面�
         
 
         <div class="article-content max-w-prose mb-20">
-          <h2 class="relative group">前言
+          
+<h2 class="relative group">前言
     <div id="前言" class="anchor"></div>
     
     <span
@@ -835,251 +872,324 @@ scrapy还有很多其他的特性，我在实践中比较常用的就是上面�
     </span>
     
 </h2>
-<blockquote>
-<p>历史博客已归档，关于爬虫的解读和导读详情见<a
-  href="/posts/talk_about_my_old_blog">《漫谈博客来时路》</a></p>
-</blockquote>
-<p>久闻<code>scrapy</code>大名，一直想找机会了解一下这框架，在兴趣的驱动下学习了一下简单的<code>scrapy</code>的使用。虽然上次用java做的一个爬虫，但是后来觉得也算不上什么爬虫吧，只能算模拟<code>http</code>请求和<code>http</code>响应的处理、<code>json</code>的序列化和反序列化、excel文件的读取和写入而已，很多爬虫需要处理的东西也并没有处理。
-但是<code>scrapy</code>就不一样了，作为一个成熟的爬虫框架，scrapy有以下几点优势。</p>
-<ol>
-<li>内嵌了CSS选择器和XPath解析器用于提取HTML/XML的信息。</li>
-<li>提供了一个shell控制台用于测试css和xpath的表达式。</li>
-<li>良好的架构设计：middleware、pipeline。</li>
-<li>成熟的请求调度器。</li>
-</ol>
-<blockquote>
-<p>备注: 以上特性来自于<a
-  href="https://doc.scrapy.org/en/latest/intro/overview.html"
-    target="_blank"
-  >scrapy官方文档</a></p>
-</blockquote>
-<p>scrapy还有很多其他的特性，我在实践中比较常用的就是上面这几项。</p>
-<p>另外，上次爬取动态页面的时候，采取的策略是分析AJAX请求的URL然后自己构造请求。这种方法比较麻烦，需要自己去分析请求，这次我们采用selenium+headless-chrome，以浏览器自动化的方式爬取数据。</p>
+<p>在重启博客之际，回顾自己7年前的老博客，不由心生感慨：“撒老师，我没白活！”</p>
+<p>在这7年间，软件开发的技术迭代日新月异，如今我们已经步进了Vibe Coding的时代，
+大模型重塑了软件开发的范式。这一变化让很多东西变得没有意义，也让很多东西变得更有意义。</p>
+<p>我标题的“漫谈”是广度上的“漫谈”，也就是把我曾经写的博客都谈谈，而并非组织形式上的随便谈谈的“漫谈”。</p>
+<p>因此，我先说一下我的组织形式。回顾我的博客，我大致将博文分为了以下几类：<strong>编程武器</strong>、<strong>web架构</strong>、<strong>爬虫</strong> 这三大类。</p>
+<p>每一类，我都会解构一些重要的知识点，重新用新时代的方式表达一次；同时，对于一些淘汰落后的内容，我也会给出新时代下的替代。简单的内容就直接写在这篇博客了，复杂的内容再考虑另开博客。话不多说，我们开始吧。</p>
 
-<h2 class="relative group">技术框架
-    <div id="技术框架" class="anchor"></div>
+<h2 class="relative group">编程武器类
+    <div id="编程武器类" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
-        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e6%8a%80%e6%9c%af%e6%a1%86%e6%9e%b6" aria-label="锚点">#</a>
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e7%bc%96%e7%a8%8b%e6%ad%a6%e5%99%a8%e7%b1%bb" aria-label="锚点">#</a>
     </span>
     
 </h2>
-<p>编程语言：python
-库：scrapy、pymysql、selenium
-工具：headless chrome</p>
+<p><a
+  href="/posts/git"><u>git怎样使用</u></a>、<a
+  href="/posts/software"><u>软件的集锦</u></a>、<a
+  href="/posts/linux-command"><u>Linux的命令</u></a>、<a
+  href="/posts/mail"><u>个人域名的邮箱</u></a></p>
+
+<h3 class="relative group">关于git
+    <div id="关于git" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e5%85%b3%e4%ba%8egit" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<p>版本控制在程序开发甚至内容管理上面至关重要，<code>git</code> 就是其中的佼佼者，在 <code>vibe coding</code>的时代，<code>git</code> 依然这么重要，甚至更上一层楼。</p>
+<p>毕竟当AI 生成搞坏你的代码的时候，如何恢复特别重要。而 <code>git</code> 能够很好的解决这个问题。</p>
+<p>首先，<strong>在大模型时代，我认为学习一个知识，学习宏观层面的设计尤为重要，至于细枝末节，问大模型+manual勘查即可</strong>。</p>
+<p>因此，我们先总结下<code>git</code>的宏观设计:</p>
+<p><strong>逻辑区域的划分和状态转移</strong></p>
+<pre class="not-prose mermaid">
+stateDiagram-v2
+    [*] --> RemoteRepo: 初始化
+
+    state "Remote Repository</br>(远端仓库)" as RemoteRepo
+    state "Working Directory</br>(工作区)" as WorkSpace
+    state "Staging Area</br>(暂存区)" as Stage
+    state "Local Repository</br>(本地仓库)" as LocalRepo
+    state "Stash Stack</br>(储藏栈)" as Stash
+
+    RemoteRepo --> WorkSpace: git clone (克隆仓库)
+
+    WorkSpace --> Stage: git add (添加到暂存区)
+    Stage --> WorkSpace: git reset HEAD (撤销暂存)
+
+    Stage --> LocalRepo: git commit (提交)
+
+    LocalRepo --> WorkSpace: git checkout (检出/切换分支)
+    LocalRepo --> WorkSpace: git checkout -- file (丢弃修改)
+
+    LocalRepo --> RemoteRepo: git push (推送更新)
+    RemoteRepo --> LocalRepo: git fetch (获取更新)
+
+    RemoteRepo --> WorkSpace: git pull (拉取并合并)
+
+    %% Git Stash 相关
+    WorkSpace --> Stash: git stash (储藏当前修改)
+    Stash --> WorkSpace: git stash pop (恢复并删除储藏)
+
+    %% Git Revert 相关
+    LocalRepo --> LocalRepo: git revert (撤销提交并生成新提交)
+</pre>
+
+<blockquote>
+<p>git reset HEAD 中的 HEAD 是提交记录的引用，在此不再赘述，可通过AI检索更多引用的方式</p>
+</blockquote>
+<p><strong>本地仓库管理</strong></p>
+<p>以下是关于 Git 本地仓库管理中常用指令的说明表格：</p>
 <table>
   <thead>
       <tr>
-          <th>框架</th>
-          <th>说明</th>
+          <th style="text-align: left">指令</th>
+          <th style="text-align: left">核心作用</th>
+          <th style="text-align: left">命令参考</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td>scrapy</td>
-          <td>python著名爬虫框架</td>
+          <td style="text-align: left"><strong>Branch</strong></td>
+          <td style="text-align: left">创建独立的开发线路，实现并行开发。</td>
+          <td style="text-align: left"><code>git branch</code> (查看), <code>git checkout -b</code> (创建并切换)</td>
       </tr>
       <tr>
-          <td>pymysql</td>
-          <td>python数据库访问框架</td>
+          <td style="text-align: left"><strong>Merge</strong></td>
+          <td style="text-align: left">将分支历史合并，保留完整提交记录（会有分叉）。</td>
+          <td style="text-align: left"><code>git merge &lt;branch-name&gt;</code></td>
       </tr>
       <tr>
-          <td>selenium</td>
-          <td>浏览器自动化框架</td>
+          <td style="text-align: left"><strong>Rebase</strong></td>
+          <td style="text-align: left">变基，将提交移植到目标分支顶端，使历史线性化。</td>
+          <td style="text-align: left"><code>git rebase &lt;branch-name&gt;</code></td>
       </tr>
       <tr>
-          <td>headless chrome</td>
-          <td>命令行运行的chrome</td>
+          <td style="text-align: left"><strong>Cherry-pick</strong></td>
+          <td style="text-align: left">拣选，将指定的某个提交单独应用到当前分支。</td>
+          <td style="text-align: left"><code>git cherry-pick &lt;commit-id&gt;</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>Reflog</strong></td>
+          <td style="text-align: left">引用日志，记录 HEAD 移动历史，用于找回误删数据。</td>
+          <td style="text-align: left"><code>git reflog</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>Tag</strong></td>
+          <td style="text-align: left">标记特定的发布版本节点（如 v1.0），通常不随代码变动。</td>
+          <td style="text-align: left"><code>git tag &lt;name&gt;</code>, <code>git push origin &lt;tag&gt;</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>Remote</strong></td>
+          <td style="text-align: left">管理远程仓库的连接别名（如 origin），实现本地与远端交互。</td>
+          <td style="text-align: left"><code>git remote -v</code> (查看), <code>git remote add</code> (添加)</td>
       </tr>
   </tbody>
 </table>
-
-<h2 class="relative group">数据流
-    <div id="数据流" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
-        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e6%95%b0%e6%8d%ae%e6%b5%81" aria-label="锚点">#</a>
-    </span>
-    
-</h2>
-<p>在研究数据流之前，我们首先看一下scrapy设计的架构。
-<figure><img
-    class="my-0 rounded-md"
-    loading="lazy"
-    decoding="async"
-    fetchpriority="auto"
-    alt=""
-    width="1400"
-    height="940"
-    src="/img/scrapy_architecture_02_hu_694d29af5290f706.png"
-    srcset="/img/scrapy_architecture_02_hu_694d29af5290f706.png 800w, /img/scrapy_architecture_02_hu_adf4837c3efea718.png 1280w"
-    sizes="(min-width: 768px) 50vw, 65vw"
-    data-zoom-src="/img/scrapy_architecture_02.png"></figure>
-</p>
-<ol>
-<li>spider创建Request对象。</li>
-<li>request对象经过SpiderMiddleware</li>
-<li>Engine获取了spider的请求。</li>
-<li>Engine将请求发送给scheduler调度，继续拿下一个请求。</li>
-<li>scheduler调度请求，发送到downloadMiddleware。</li>
-<li>根据downloadMiddleware <code>process_request()</code>方法的返回结果，选择继续发送给downloader或者是返回response给Engine</li>
-<li>Engine将response发送给spider middleware</li>
-<li>spider middleware将response发送给spider</li>
-<li>spider 调用注册的回调函数（默认<code>parse()</code>）</li>
-<li>根据返回结果调用pipeline和继续将请求发送给Engine</li>
-</ol>
-<p>制作了一个序列图如下：
-<figure><img
-    class="my-0 rounded-md"
-    loading="lazy"
-    decoding="async"
-    fetchpriority="auto"
-    alt=""
-    width="1385"
-    height="804"
-    src="/img/scrapy_sequence_hu_27817bb6cb8f7aa4.png"
-    srcset="/img/scrapy_sequence_hu_27817bb6cb8f7aa4.png 800w, /img/scrapy_sequence_hu_cebb3de7972db1b1.png 1280w"
-    sizes="(min-width: 768px) 50vw, 65vw"
-    data-zoom-src="/img/scrapy_sequence.png"></figure>
-</p>
-
-<h2 class="relative group">项目实战
-    <div id="项目实战" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
-        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e9%a1%b9%e7%9b%ae%e5%ae%9e%e6%88%98" aria-label="锚点">#</a>
-    </span>
-    
-</h2>
-<p>下载<a
-  href="https://sites.google.com/a/chromium.org/chromedriver/downloads"
-    target="_blank"
-  >chrome driver</a>,将可执行文件添加到环境变量。windows下直接下载chrome，Linux命令行下载chrome步骤如下：</p>
-<pre tabindex="0"><code>deb版本地址：https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb  
-rpm版本地址:https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm  
-wget &lt;下载地址&gt;
-centos: yum install &lt;安装包文件名&gt;  
-ubuntu: apt install &lt;安装包文件名&gt;
-</code></pre><p>然后安装python需要的几个库</p>
-<pre tabindex="0"><code>pip install pymysql
-pip install scrapy
-pip install selenium
-</code></pre><p>下面我们爬取某二手车网站的数据，爬取思路大致如下：</p>
-<ol>
-<li>获取某二手车网站的url。</li>
-<li>向该URL请求数据。</li>
-<li>写一个download middleware，拦截该请求，将请求交给chrome处理。</li>
-<li>得到渲染好的HTML文档后，编写css、xpath表达式提取数据。</li>
-<li>编写一个item pipeline,将数据写入数据库。</li>
-</ol>
-<p>项目源代码在<a
-  href="https://github.com/UZPENG/crawl-scrapy-demo"
-    target="_blank"
-  >这里</a>，在此不过多叙述实现的细节。</p>
-
-<h2 class="relative group">反爬虫与反反爬虫
-    <div id="反爬虫与反反爬虫" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
-        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e5%8f%8d%e7%88%ac%e8%99%ab%e4%b8%8e%e5%8f%8d%e5%8f%8d%e7%88%ac%e8%99%ab" aria-label="锚点">#</a>
-    </span>
-    
-</h2>
-<p>在完成这个项目的过程中，在知乎上看到一个关于反爬虫的回答[1]总结得挺有意思的。内容涵盖了反爬虫的方方面面，我总结一下他提到内容：</p>
-<ol>
-<li>只允许指定UserAgent的请求。但是这个请求头太好伪造啦，所以这样方法应该根本不可行。</li>
-<li>IP白名单。就是只让一部分IP访问，但是这对web应用是不现实的啦。因为web是公开的。</li>
-<li>带有浏览器特征的AJAX请求并且前端进行特殊处理后渲染。这个时候呢就是用selenium+headless-chrome啦，浏览器驱动+浏览器自动化技术。</li>
-<li>监控请求频率和时段，同时设置验证码。请求频率和时段的话，控制爬取的时间段和频率就可以了。传统验证码的话，可以用机器学习的方法图像识别。</li>
-<li>传统验证码容易被图像识别，所以现在产生各种拖动滑条、点击图中的指定的字这种验证码，这种验证码用机器处理难度还是比较大的。但是呢，可以花钱请专门的“打码”团队帮忙，这个在爬虫领域还是很常见的。</li>
-</ol>
-<p>在实践过程中，爬取某二手车网站的时候，直接模拟http请求是不可行的，因为会提示如下信息：
-<figure><img
-    class="my-0 rounded-md"
-    loading="lazy"
-    decoding="async"
-    fetchpriority="auto"
-    alt=""
-    width="1585"
-    height="580"
-    src="/img/request_error_hu_8bdd6bf87a8fbfc5.png"
-    srcset="/img/request_error_hu_8bdd6bf87a8fbfc5.png 800w, /img/request_error_hu_b1c2b34be5f13c7f.png 1280w"
-    sizes="(min-width: 768px) 50vw, 65vw"
-    data-zoom-src="/img/request_error.png"></figure>
-
-这就是典型的利用浏览器特征反爬虫的，就是不允许非浏览器的请求。解决办法就是自动化浏览器请求。</p>
-<p>另外我自己也简单尝试了一下图像识别验证码的。当时使用的是<code>tessract</code>和<code>PIL</code>，因为我没做二值化处理和训练模型，所以是失败了。因为不想再这方面投入更大的时间，所以就此作罢。</p>
-<p>最后，我在程序也实现了指定时间段和频率控制的功能。指定时间段的话也很简单，就是获取当前时间，是指定时间就运行非指定时间睡眠就可以了。控制的频率的话，加入延迟的就好。</p>
-
-<h2 class="relative group">浏览器自动化技术
-    <div id="浏览器自动化技术" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
-        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e6%b5%8f%e8%a7%88%e5%99%a8%e8%87%aa%e5%8a%a8%e5%8c%96%e6%8a%80%e6%9c%af" aria-label="锚点">#</a>
-    </span>
-    
-</h2>
-<p>在这次爬虫的过程中，接触到了浏览器自动化技术。其实呢，这项技术本身是用来进行浏览器自动化测试的，只是很多人也用它进行爬虫。浏览器自动化是一个有趣的事情，让我们简单看看它的效果。
-<figure><img
-    class="my-0 rounded-md"
-    loading="lazy"
-    decoding="async"
-    fetchpriority="auto"
-    alt=""
-    width="923"
-    height="963"
-    src="/img/login_hu_9f2d24b2a87c46a8.gif"
-    srcset="/img/login_hu_9f2d24b2a87c46a8.gif 800w, /img/login.gif 1280w"
-    sizes="(min-width: 768px) 50vw, 65vw"
-    data-zoom-src="/img/login.gif"></figure>
-</p>
-<p>这是一个自动化登录的例子，哈哈哈，是不是有点酷<del>第一次看到可以自动化还是有点小激动的</del></p>
-<p>另外，很多人都用过headless browser，不过网上很多文章都是使用PhantomJS的，而我为什么不用呢，主要是因为PhantomJS作者在2017年4月13日就宣布停止维护和更新它啦~因为在无界面浏览器领域，chrome出一个版本，所以PhantomJS的作者就停止维护了，以下是他的帖子。
-<figure><img
-    class="my-0 rounded-md"
-    loading="lazy"
-    decoding="async"
-    fetchpriority="auto"
-    alt=""
-    width="1108"
-    height="445"
-    src="/img/post_hu_de23a4fc0de0847c.png"
-    srcset="/img/post_hu_de23a4fc0de0847c.png 800w, /img/post.png 1280w"
-    sizes="(min-width: 768px) 50vw, 65vw"
-    data-zoom-src="/img/post.png"></figure>
-
-<a
-  href="https://groups.google.com/forum/#!topic/phantomjs/9aI5d-LDuNE"
-    target="_blank"
-  >原文链接</a>
-作者主要是观点是认为headless chrome比PhantomJS更加流畅和稳定，而且更节省内存。而且作者是自己一个人开发的，（大神收下我的膝盖）所以就停止维护这个项目啦。</p>
-<p>最后，其实浏览器自动化的话，除了使用selenium外，在这次爬虫过程中还发现了另外两个库<a
-  href="https://github.com/GoogleChrome/puppeteer"
-    target="_blank"
-  >puppeteer</a>和<a
-  href="https://github.com/segmentio/nightmare"
-    target="_blank"
-  >nightmare</a>。第一个是google-chrome官方团队做的，而且更新频率还挺高的挺多人维护的。这两个框架就没时间研究啦，只是了解到，记录一下。</p>
 <blockquote>
-<p>附录：</p>
-<ol>
-<li><a
-  href="https://medium.com/powtoon-engineering/a-complete-guide-to-testing-javascript-in-2017-a217b4cd5a2a"
-    target="_blank"
-  >浏览器自动化测试框架链接</a></li>
-<li><a
-  href="https://intoli.com/blog/not-possible-to-block-chrome-headless/"
-    target="_blank"
-  >有没有可能检测然后禁止headless-chrome呢？</a></li>
-</ol>
+<p>详细的用法不再赘述，使用AI问答结合实际项目多尝试即可体会其中的用处</p>
 </blockquote>
+<p><strong>其他</strong></p>
+<p>还有以下这些常用内容，仅作索引，详情可使用 <strong>大模型检索+manual勘误</strong>：</p>
+<ul>
+<li>在提交历史抹除指定内容(比如误提交了账号密码，需要在历史中抹除掉)</li>
+<li>配置<code>git</code>(用户名、邮箱、alias、proxy、统一换行符、LFS等)</li>
+<li><code>git hook</code>，Hook 就是可以在git的一些操作前后定义自己的逻辑，如：提交前自动格式化、合并时设置门禁检查等</li>
+<li><code>log</code> 查看历史；<code>diff</code> 对比不同commit的差异；<code>blame</code> 找到指定代码是谁最后改的；<code>merge</code>的冲突解决；以上这些都使用GUI的工具即可，<code>VSCode</code> 和 <code>IDEA全家桶</code>都有较好的支持</li>
+</ul>
 
-<h2 class="relative group">&ldquo;结语&rdquo;
+<h3 class="relative group">软件的集锦
+    <div id="软件的集锦" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e8%bd%af%e4%bb%b6%e7%9a%84%e9%9b%86%e9%94%a6" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<p>这个没啥好说的，典型的大模型秒杀场景，现在直接根据使用场景问大模型即可，免费、开源、付费的都有</p>
+<p>结合我们的思路，在Agentic时代，包管理工具也有广阔的空间，Windows现在也有 <code>choco</code> 了</p>
+<p>不过话说回来，虽然包管理好用，但是有些时候我们还是需要自己编译的，所以掌握开源软件的编译也很重要</p>
+
+<h3 class="relative group">Linux的命令
+    <div id="linux的命令" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#linux%e7%9a%84%e5%91%bd%e4%bb%a4" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<p>这个也是大模型秒杀的场景，最佳实践：<strong>问大模型+manual勘误+自己多尝试</strong></p>
+
+<h3 class="relative group">个人域名的邮箱
+    <div id="个人域名的邮箱" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e4%b8%aa%e4%ba%ba%e5%9f%9f%e5%90%8d%e7%9a%84%e9%82%ae%e7%ae%b1" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<p>这个现在也不用自己搞这么麻烦了，找云厂商注册域名，备案域名，绑定一些三方邮箱即可</p>
+<p><strong>云厂商是个很好的练兵场，花小钱可以学习和体验各种技术，新人还是有必要的，一定要花这笔费用</strong></p>
+
+<h3 class="relative group">锐评
+    <div id="锐评" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e9%94%90%e8%af%84" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<ol>
+<li>一定要学会用命令行，多敲敲git的命令，从根本上掌握的git的设计</li>
+<li>最高效的方式就是命令行+GUI结合。命令行适合自动化，Agentic 时代更加重要；GUI适合人工介入，对人为操作更友好</li>
+<li><strong>在大模型时代，我认为学习一个知识，学习宏观层面的设计尤为重要，至于细枝末节，问大模型+manual勘误即可</strong></li>
+</ol>
+
+<h2 class="relative group">web架构
+    <div id="web架构" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#web%e6%9e%b6%e6%9e%84" aria-label="锚点">#</a>
+    </span>
+    
+</h2>
+<p><a
+  href="/posts/concurrent"><u>Java并发编程入门</u></a>、<a
+  href="/posts/deploy-doc"><u>Ngnix+Tomcat+MySQL项目部署</u></a>、<a
+  href="/posts/io-multiplexing"><u>Linux-IO多路复用-SELECT/POLL/EPOLL</u></a></p>
+
+<h3 class="relative group">高性能
+    <div id="高性能" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e9%ab%98%e6%80%a7%e8%83%bd" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<ol>
+<li>首先IO多路复用时至今日，仍然是重要的技术，<strong>批量+主动提醒是其核心的优势</strong>。
+另外这些函数都是系统调用，也就是说如果你使用的语言比较高级，你得查查对应的IO API的底层是什么模式。</li>
+<li>并发编程旧博文理论太多了。用当前的眼光看：Java并发编程去学习<code>Akka</code>，学习什么是 <code>Actor 模式</code>; 去学习并发编程包的API，多使用现代的并发抽象源语
+另外Golang的<code>CSP 模式</code>也值得学习，那句 <strong>不要通过共享内存来通信，而要通过通信来共享内存</strong>颇具哲学意味。</li>
+</ol>
+
+<h3 class="relative group">部署模式
+    <div id="部署模式" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e9%83%a8%e7%bd%b2%e6%a8%a1%e5%bc%8f" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<ol>
+<li>独立Tomcat容器早已淘汰，拥抱<code>Spring Boot</code>吧</li>
+<li>Nginx基于IO多路复用，依旧是Web的核心组件</li>
+<li>裸机部署已过时，现在是成熟的容器化时代，docker+k8s是主流。伴随k8s生态的还有：CI/CD（持续集成，持续发布）、日志监控（ELK+grafana）、告警（Prometheus）、自动扩缩容、健康检查</li>
+<li>关于docker和k8s又是长篇大论，就不在这里展开了，学习的时候，记得遵循<strong>先学习宏观层面的设计，至于细枝末节，问大模型+manual勘误即可</strong></li>
+</ol>
+
+<h3 class="relative group">锐评
+    <div id="锐评-1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e9%94%90%e8%af%84-1" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<ol>
+<li>多实践，多尝试，拒绝只看理论。AI大模型时代，生成代码触手可及，带着自己的想法在vibe coding 中学习，比干巴巴的理论有趣多了呢</li>
+<li>架构变化的核心思想还是KISS（Keep It Stupid Simple），人能理解的内容是有限的，所以我们要<strong>自动化、可重复、可观测、可追踪</strong></li>
+</ol>
+
+<h2 class="relative group">爬虫
+    <div id="爬虫" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e7%88%ac%e8%99%ab" aria-label="锚点">#</a>
+    </span>
+    
+</h2>
+<p><a
+  href="/posts/crawl"><u>爬虫实践&ndash;淘数据网站的数据爬取和存储</u></a>、<a
+  href="/posts/scrapy"><u>scrapy+selenium+headless-chrome</u></a></p>
+
+<h3 class="relative group">HTTP协议
+    <div id="http协议" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#http%e5%8d%8f%e8%ae%ae" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<ol>
+<li>爬虫本质上就是构造对应的网络请求去获取对应的网络相应内容。至于如何构造，那就是对应协议的细节了，因此HTTP协议的设计是需要掌握的</li>
+<li>HTTP协议关键概念：URL的组成和含义、请求方法、HTTP版本、请求HEADER、请求体、响应码、响应HEADER、响应体</li>
+<li>相关知识有：REST API设计、常用HEADER及其的含义</li>
+<li>HTTP版本有1.0、1.1、2.0、3.0，相关细节查对应RFC即可</li>
+<li><strong>抽象的概念特别重要，编程大多数的时候都是现有抽象的设计，然后再编码来建模，如果你不懂抽象的概念，也就不会理解相应的API设计</strong></li>
+<li>你问协议为啥是这样设计的？所谓协议就是彼此协商好的通信规则。特别是浏览器，就个是按web规范实现的客户端，所以当你按照web规范实现接口时，浏览器就能进行解析和渲染。</li>
+</ol>
+
+<h3 class="relative group">web前端
+    <div id="web前端" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#web%e5%89%8d%e7%ab%af" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<ol>
+<li>毕竟很多内容都是通过web浏览器承载的，所以学习一些浏览器知识也很有帮助的。</li>
+<li>比如：cookie / localstorage / session / xpath / css selector / DOM / HTML</li>
+<li>浏览器自动化目前使用 <code>playwright</code>，API简洁且有方便的等待机制，比 <code>selenium</code> 写起来舒服多了</li>
+</ol>
+
+<h3 class="relative group">scrapy
+    <div id="scrapy" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#scrapy" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<ol>
+<li>这个也不深入讲了，涉及到比较多Python的知识，核心流程就是：请求、响应、数据处理、入库</li>
+</ol>
+
+<h3 class="relative group">锐评
+    <div id="锐评-2" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e9%94%90%e8%af%84-2" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<ol>
+<li>感慨时光易逝呀，以前的淘数据网站现在都已经404了</li>
+<li>反爬和反反爬内容也很多，也不再赘述，给点关键词吧：浏览器自动化、JS加解密、cloudfare金盾等等</li>
+<li><strong>爬虫还是挺有意思的，能够激发新人学习的兴趣，配上浏览器自动化，享受vibe coding吧</strong></li>
+</ol>
+
+<h2 class="relative group">结语
     <div id="结语" class="anchor"></div>
     
     <span
@@ -1088,18 +1198,17 @@ pip install selenium
     </span>
     
 </h2>
-<p>实践是检验真理的唯一标准。知道是怎么样和能够做出来是两回事。作为一个工程师，还是要多多实践的。做这个项目前后用了两周的时间，经历了学习python的简单使用、阅读scrapy的官方文档、阅读selenium文档、学习css选择器和xpath表达式、实现项目、部署上线。</p>
-<p>另外在项目过程中也阅读了大量的英文文献，本来也想着先看看中文的书籍先的，但是感觉书籍里面太多无关紧要的内容了，所以还是选择了阅读英文文献。在此过程中阅读英文文献有以下几个优点：</p>
+<p>在这里，旧博客的复盘就结束了。</p>
+<p>很显然，内容不多，也比较简单，细节的内容大模型基本都能够很好地替代。</p>
+<p>不过在这个过程中，还是有几个新的体会值得参考的：</p>
 <ol>
-<li>系统、全面。</li>
-<li>带有大量demo、samples。</li>
-<li>一手信息，更新及时。</li>
+<li><strong>在大模型时代，我认为学习一个知识，学习宏观层面的设计尤为重要，至于细枝末节，问大模型+manual勘误即可</strong></li>
+<li><strong>抽象的概念特别重要，编程大多数的时候都是现有抽象的设计，然后再编码来建模，如果你不懂抽象的概念，也就不会理解相应的API设计</strong></li>
+<li><strong>AI大模型时代，生成代码触手可及，带着自己的想法在vibe coding 中学习，比干巴巴的理论有趣多了呢</strong></li>
+<li><strong>KISS（Keep It Stupid Simple），人能理解的内容是有限的，所以我们要自动化、可重复、可观测、可追踪</strong></li>
 </ol>
-<p>当然缺点也有：</p>
-<ol>
-<li>阅读效率低（主要还是自己英文渣渣）</li>
-</ol>
-<p>学好英文多重要啊！还是继续好好学习吧！</p>
+<p>共勉</p>
+
           
           
           
@@ -1115,7 +1224,7 @@ pip install selenium
         <a
           target="_blank"
           class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-          href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:1313/posts/scrapy/&amp;title=scrapy&#43;selenium&#43;headless-chrome%e7%88%ac%e8%99%ab%e6%80%bb%e7%bb%93"
+          href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:1313/posts/talk_about_my_old_blog/&amp;title=%e6%bc%ab%e8%b0%88%e5%8d%9a%e5%ae%a2%e6%9d%a5%e6%97%b6%e8%b7%af"
           title="分享到 LinkedIn"
           aria-label="分享到 LinkedIn">
           <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
@@ -1127,7 +1236,7 @@ pip install selenium
         <a
           target="_blank"
           class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-          href="https://twitter.com/intent/tweet/?url=http://localhost:1313/posts/scrapy/&amp;text=scrapy&#43;selenium&#43;headless-chrome%e7%88%ac%e8%99%ab%e6%80%bb%e7%bb%93"
+          href="https://twitter.com/intent/tweet/?url=http://localhost:1313/posts/talk_about_my_old_blog/&amp;text=%e6%bc%ab%e8%b0%88%e5%8d%9a%e5%ae%a2%e6%9d%a5%e6%97%b6%e8%b7%af"
           title="分享到 Twitter"
           aria-label="分享到 Twitter">
           <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg></span>
@@ -1138,7 +1247,7 @@ pip install selenium
         <a
           target="_blank"
           class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-          href="https://api.whatsapp.com/send?text=http://localhost:1313/posts/scrapy/&amp;resubmit=true&amp;title=scrapy&#43;selenium&#43;headless-chrome%e7%88%ac%e8%99%ab%e6%80%bb%e7%bb%93"
+          href="https://api.whatsapp.com/send?text=http://localhost:1313/posts/talk_about_my_old_blog/&amp;resubmit=true&amp;title=%e6%bc%ab%e8%b0%88%e5%8d%9a%e5%ae%a2%e6%9d%a5%e6%97%b6%e8%b7%af"
           title="通过 WhatsApp 分享"
           aria-label="通过 WhatsApp 分享">
           <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
@@ -1150,7 +1259,7 @@ pip install selenium
         <a
           target="_blank"
           class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-          href="https://pinterest.com/pin/create/bookmarklet/?url=http://localhost:1313/posts/scrapy/&amp;description=scrapy&#43;selenium&#43;headless-chrome%e7%88%ac%e8%99%ab%e6%80%bb%e7%bb%93"
+          href="https://pinterest.com/pin/create/bookmarklet/?url=http://localhost:1313/posts/talk_about_my_old_blog/&amp;description=%e6%bc%ab%e8%b0%88%e5%8d%9a%e5%ae%a2%e6%9d%a5%e6%97%b6%e8%b7%af"
           title="钉到 Pinterest"
           aria-label="钉到 Pinterest">
           <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M496 256c0 137-111 248-248 248-25.6 0-50.2-3.9-73.4-11.1 10.1-16.5 25.2-43.5 30.8-65 3-11.6 15.4-59 15.4-59 8.1 15.4 31.7 28.5 56.8 28.5 74.8 0 128.7-68.8 128.7-154.3 0-81.9-66.9-143.2-152.9-143.2-107 0-163.9 71.8-163.9 150.1 0 36.4 19.4 81.7 50.3 96.1 4.7 2.2 7.2 1.2 8.3-3.3.8-3.4 5-20.3 6.9-28.1.6-2.5.3-4.7-1.7-7.1-10.1-12.5-18.3-35.3-18.3-56.6 0-54.7 41.4-107.6 112-107.6 60.9 0 103.6 41.5 103.6 100.9 0 67.1-33.9 113.6-78 113.6-24.3 0-42.6-20.1-36.7-44.8 7-29.5 20.5-61.3 20.5-82.6 0-19-10.2-34.9-31.4-34.9-24.9 0-44.9 25.7-44.9 60.2 0 22 7.4 36.8 7.4 36.8s-24.5 103.8-29 123.2c-5 21.4-3 51.6-.9 71.2C65.4 450.9 0 361.1 0 256 0 119 111 8 248 8s248 111 248 248z"/></svg>
@@ -1162,7 +1271,7 @@ pip install selenium
         <a
           target="_blank"
           class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-          href="https://reddit.com/submit/?url=http://localhost:1313/posts/scrapy/&amp;resubmit=true&amp;title=scrapy&#43;selenium&#43;headless-chrome%e7%88%ac%e8%99%ab%e6%80%bb%e7%bb%93"
+          href="https://reddit.com/submit/?url=http://localhost:1313/posts/talk_about_my_old_blog/&amp;resubmit=true&amp;title=%e6%bc%ab%e8%b0%88%e5%8d%9a%e5%ae%a2%e6%9d%a5%e6%97%b6%e8%b7%af"
           title="提交到 Reddit"
           aria-label="提交到 Reddit">
           <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M201.5 305.5c-13.8 0-24.9-11.1-24.9-24.6 0-13.8 11.1-24.9 24.9-24.9 13.6 0 24.6 11.1 24.6 24.9 0 13.6-11.1 24.6-24.6 24.6zM504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zm-132.3-41.2c-9.4 0-17.7 3.9-23.8 10-22.4-15.5-52.6-25.5-86.1-26.6l17.4-78.3 55.4 12.5c0 13.6 11.1 24.6 24.6 24.6 13.8 0 24.9-11.3 24.9-24.9s-11.1-24.9-24.9-24.9c-9.7 0-18 5.8-22.1 13.8l-61.2-13.6c-3-.8-6.1 1.4-6.9 4.4l-19.1 86.4c-33.2 1.4-63.1 11.3-85.5 26.8-6.1-6.4-14.7-10.2-24.1-10.2-34.9 0-46.3 46.9-14.4 62.8-1.1 5-1.7 10.2-1.7 15.5 0 52.6 59.2 95.2 132 95.2 73.1 0 132.3-42.6 132.3-95.2 0-5.3-.6-10.8-1.9-15.8 31.3-16 19.8-62.5-14.9-62.5zM302.8 331c-18.2 18.2-76.1 17.9-93.6 0-2.2-2.2-6.1-2.2-8.3 0-2.5 2.5-2.5 6.4 0 8.6 22.8 22.8 87.3 22.8 110.2 0 2.5-2.2 2.5-6.1 0-8.6-2.2-2.2-6.1-2.2-8.3 0zm7.7-75c-13.6 0-24.6 11.1-24.6 24.9 0 13.6 11.1 24.6 24.6 24.6 13.8 0 24.9-11.1 24.9-24.6 0-13.8-11-24.9-24.9-24.9z"/></svg>
@@ -1174,7 +1283,7 @@ pip install selenium
         <a
           target="_blank"
           class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-          href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:1313/posts/scrapy/&amp;quote=scrapy&#43;selenium&#43;headless-chrome%e7%88%ac%e8%99%ab%e6%80%bb%e7%bb%93"
+          href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:1313/posts/talk_about_my_old_blog/&amp;quote=%e6%bc%ab%e8%b0%88%e5%8d%9a%e5%ae%a2%e6%9d%a5%e6%97%b6%e8%b7%af"
           title="分享到 Facebook"
           aria-label="分享到 Facebook">
           <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
@@ -1186,7 +1295,7 @@ pip install selenium
         <a
           target="_blank"
           class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-          href="mailto:?body=http://localhost:1313/posts/scrapy/&amp;subject=scrapy&#43;selenium&#43;headless-chrome%e7%88%ac%e8%99%ab%e6%80%bb%e7%bb%93"
+          href="mailto:?body=http://localhost:1313/posts/talk_about_my_old_blog/&amp;subject=%e6%bc%ab%e8%b0%88%e5%8d%9a%e5%ae%a2%e6%9d%a5%e6%97%b6%e8%b7%af"
           title="通过电子邮件发送"
           aria-label="通过电子邮件发送">
           <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M207.8 20.73c-93.45 18.32-168.7 93.66-187 187.1c-27.64 140.9 68.65 266.2 199.1 285.1c19.01 2.888 36.17-12.26 36.17-31.49l.0001-.6631c0-15.74-11.44-28.88-26.84-31.24c-84.35-12.98-149.2-86.13-149.2-174.2c0-102.9 88.61-185.5 193.4-175.4c91.54 8.869 158.6 91.25 158.6 183.2l0 16.16c0 22.09-17.94 40.05-40 40.05s-40.01-17.96-40.01-40.05v-120.1c0-8.847-7.161-16.02-16.01-16.02l-31.98 .0036c-7.299 0-13.2 4.992-15.12 11.68c-24.85-12.15-54.24-16.38-86.06-5.106c-38.75 13.73-68.12 48.91-73.72 89.64c-9.483 69.01 43.81 128 110.9 128c26.44 0 50.43-9.544 69.59-24.88c24 31.3 65.23 48.69 109.4 37.49C465.2 369.3 496 324.1 495.1 277.2V256.3C495.1 107.1 361.2-9.332 207.8 20.73zM239.1 304.3c-26.47 0-48-21.56-48-48.05s21.53-48.05 48-48.05s48 21.56 48 48.05S266.5 304.3 239.1 304.3z"/></svg>
@@ -1214,8 +1323,8 @@ pip install selenium
           type="text/javascript"
           src="/js/page.min.54b6f4371722649edbe871e431d8670d670878c22be8f36e229fe53cc9b786fe25a834def5e6de621f7a3e37b72bc8cd73839aa5ed907ed6cbd45cd3e1b0fa20.js"
           integrity="sha512-VLb0NxciZJ7b6HHkMdhnDWcIeMIr6PNuIp/lPMm3hv4lqDTe9ebeYh96Pje3K8jNc4Oape2QftbL1FzT4bD6IA=="
-          data-oid="views_posts\scrapy.md"
-          data-oid-likes="likes_posts\scrapy.md"></script>
+          data-oid="views_posts\talk_about_my_old_blog.md"
+          data-oid-likes="likes_posts\talk_about_my_old_blog.md"></script>
       
     </section>
 
@@ -1233,14 +1342,14 @@ pip install selenium
           
             <a
               class="flex text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
-              href="/posts/crawl/">
+              href="/posts/concurrent/">
               <span class="leading-6">
-                <span class="inline-block rtl:rotate-180">&larr;</span>&ensp;爬虫实践--淘数据网站的数据爬取和存储
+                <span class="inline-block rtl:rotate-180">&larr;</span>&ensp;Java并发编程入门
               </span>
             </a>
             
               <span class="ms-6 mt-1 text-xs text-neutral-500 dark:text-neutral-400">
-                <time datetime="2017-12-26T00:00:00&#43;00:00">2017-12-26</time>
+                <time datetime="2018-11-03T00:00:00&#43;00:00">2018-11-03</time>
               </span>
             
           
@@ -1249,14 +1358,14 @@ pip install selenium
           
             <a
               class="flex text-right text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
-              href="/posts/mail/">
+              href="/posts/restart_blog/">
               <span class="leading-6">
-                postfix+dovecot搭建自己的邮件服务器&ensp;<span class="inline-block rtl:rotate-180">&rarr;</span>
+                重启博客杂谈&ensp;<span class="inline-block rtl:rotate-180">&rarr;</span>
               </span>
             </a>
             
               <span class="me-6 mt-1 text-xs text-neutral-500 dark:text-neutral-400">
-                <time datetime="2018-03-06T00:00:00&#43;00:00">2018-03-06</time>
+                <time datetime="2025-11-28T23:04:01&#43;08:00">2025-11-28</time>
               </span>
             
           

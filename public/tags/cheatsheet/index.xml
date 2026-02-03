@@ -6,7 +6,7 @@
     <description>Recent content in Cheatsheet on UZPENG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <copyright>© 2025 UZPENG</copyright>
+    <copyright>© 2026 UZPENG</copyright>
     <lastBuildDate>Wed, 01 Aug 2018 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/cheatsheet/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
@@ -24,6 +24,10 @@
     &lt;/span&gt;
     
 &lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;历史博客已归档，关于编程武器的解读和导读详情见&lt;a
+  href=&#34;http://localhost:1313/posts/talk_about_my_old_blog&#34;&gt;《漫谈博客来时路》&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;git config &amp;ndash;global user.name &lt;code&gt;&amp;lt;your name&amp;gt;&lt;/code&gt;&lt;br&gt;
 git config &amp;ndash;global user.password &lt;code&gt;&amp;lt;your password&amp;gt;&lt;/code&gt;&lt;br&gt;
 ssh-keygen 生成秘钥&lt;br&gt;
@@ -60,6 +64,10 @@ sudo chsh -s /usr/bin/git-shell 更改登录的shell脚本
     &lt;/span&gt;
     
 &lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;历史博客已归档，关于编程武器的解读和导读详情见&lt;a
+  href=&#34;http://localhost:1313/posts/talk_about_my_old_blog&#34;&gt;《漫谈博客来时路》&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;因为可能经常换电脑，或者电脑重装系统，所以经常需要重装软件，记录一下使用的软件及其下载地址是很有必要的，方便日后查阅。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;以下下载链接都是win下的版本，暂时没收录其他系统。&lt;/p&gt;

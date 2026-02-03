@@ -7,9 +7,13 @@ params:
   author: UZPENG
 layoutBackgroundBlur: true
 ---
+
 # 前言
 
-这篇文章其实是我很久之前总结的，因为之前的笔记都比较零碎，现在统一将他迁移到博客。学习Java并发编程强烈推荐两本书，一本是[《Java并发编程实战》](https://book.douban.com/subject/10484692/)，另一本是[《Java7 并发实战手册》](https://book.douban.com/subject/25844475/)。
+> 历史博客已归档，关于web架构的解读和导读详情见[《漫谈博客来时路》](/posts/talk_about_my_old_blog)
+
+
+a这篇文章其实是我很久之前总结的，因为之前的笔记都比较零碎，现在统一将他迁移到博客。学习Java并发编程强烈推荐两本书，一本是[《Java并发编程实战》](https://book.douban.com/subject/10484692/)，另一本是[《Java7 并发实战手册》](https://book.douban.com/subject/25844475/)。
 
 第一本书的作者里面有 Joshua Bloch ，这位大牛可是Java Current类库的作者之一哦，类库作者亲手写的书就足够成为你看它的理由啦。Anyway，这本书对并发的理论真的讲得很好，从竞态条件、原子性到内存逸出、乐观锁、悲观锁，内容十分全面，我觉得是每一个Java程序必读的书目，可以帮助你系统地学习Java并发的知识。
 

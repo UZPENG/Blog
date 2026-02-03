@@ -6,7 +6,7 @@
     <description>Recent content in 网络 on UZPENG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <copyright>© 2025 UZPENG</copyright>
+    <copyright>© 2026 UZPENG</copyright>
     <lastBuildDate>Tue, 06 Mar 2018 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/%E7%BD%91%E7%BB%9C/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
@@ -24,6 +24,10 @@
     &lt;/span&gt;
     
 &lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;历史博客已归档，关于编程武器的解读和导读详情见&lt;a
+  href=&#34;http://localhost:1313/posts/talk_about_my_old_blog&#34;&gt;《漫谈博客来时路》&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;我对于邮箱理解，在很长一段时间里，都是qq邮箱、163邮箱、126邮箱等等的各种第三方邮箱。这些邮箱都是注册一下，然后从web页面登陆进去，就可以收发邮件了。后来上了计算机网络这门课，学习到了有关于邮件的一些协议比如SMTP、POP3、IMAP。但是，当时也只是知道有这几种协议，也没有去实践过，现在想起来真的觉得计算机各方面知识自己都实践得太少了。而且最近在学习java web开发，想着实现一个邮件发送验证码的功能，同时又想拥有一个自己的域名邮箱，所以就决定配置一下邮件服务器。&lt;/p&gt;</description>
       
     </item>
@@ -43,6 +47,10 @@
     &lt;/span&gt;
     
 &lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;历史博客已归档，关于爬虫的解读和导读详情见&lt;a
+  href=&#34;http://localhost:1313/posts/talk_about_my_old_blog&#34;&gt;《漫谈博客来时路》&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;久闻&lt;code&gt;scrapy&lt;/code&gt;大名，一直想找机会了解一下这框架，在兴趣的驱动下学习了一下简单的&lt;code&gt;scrapy&lt;/code&gt;的使用。虽然上次用java做的一个爬虫，但是后来觉得也算不上什么爬虫吧，只能算模拟&lt;code&gt;http&lt;/code&gt;请求和&lt;code&gt;http&lt;/code&gt;响应的处理、&lt;code&gt;json&lt;/code&gt;的序列化和反序列化、excel文件的读取和写入而已，很多爬虫需要处理的东西也并没有处理。
 但是&lt;code&gt;scrapy&lt;/code&gt;就不一样了，作为一个成熟的爬虫框架，scrapy有以下几点优势。&lt;/p&gt;
 &lt;ol&gt;
@@ -77,6 +85,10 @@
     &lt;/span&gt;
     
 &lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;历史博客已归档，关于爬虫的解读和导读详情见&lt;a
+  href=&#34;http://localhost:1313/posts/talk_about_my_old_blog&#34;&gt;《漫谈博客来时路》&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;最近女朋友需要利用&lt;code&gt;tableau&lt;/code&gt;来做数据可视化的作业，要做数据可视化，那首先可定得要有数据。她们打算用八爪鱼等爬虫软件来抓取数据，结果没成功，原因不明。然后跟我吐槽了一下这个事情，刚好我最近也要学爬虫，本着项目驱动学习的理念，就直接选择了这个项目来练手了。&lt;/p&gt;
 
 &lt;h2 class=&#34;relative group&#34;&gt;准备工作

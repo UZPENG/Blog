@@ -6,7 +6,7 @@
     <description>Recent content in 爬虫 on UZPENG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <copyright>© 2025 UZPENG</copyright>
+    <copyright>© 2026 UZPENG</copyright>
     <lastBuildDate>Mon, 05 Mar 2018 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/%E7%88%AC%E8%99%AB/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
@@ -24,6 +24,10 @@
     &lt;/span&gt;
     
 &lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;历史博客已归档，关于爬虫的解读和导读详情见&lt;a
+  href=&#34;http://localhost:1313/posts/talk_about_my_old_blog&#34;&gt;《漫谈博客来时路》&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;久闻&lt;code&gt;scrapy&lt;/code&gt;大名，一直想找机会了解一下这框架，在兴趣的驱动下学习了一下简单的&lt;code&gt;scrapy&lt;/code&gt;的使用。虽然上次用java做的一个爬虫，但是后来觉得也算不上什么爬虫吧，只能算模拟&lt;code&gt;http&lt;/code&gt;请求和&lt;code&gt;http&lt;/code&gt;响应的处理、&lt;code&gt;json&lt;/code&gt;的序列化和反序列化、excel文件的读取和写入而已，很多爬虫需要处理的东西也并没有处理。
 但是&lt;code&gt;scrapy&lt;/code&gt;就不一样了，作为一个成熟的爬虫框架，scrapy有以下几点优势。&lt;/p&gt;
 &lt;ol&gt;

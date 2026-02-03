@@ -9,6 +9,12 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>http://localhost:1313/posts/talk_about_my_old_blog/</loc>
+    <lastmod>2026-01-25T07:47:20+08:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>http://localhost:1313/page/resume/</loc>
     <lastmod>2025-11-20T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
@@ -22,7 +28,7 @@
   </url>
   <url>
     <loc>http://localhost:1313/posts/</loc>
-    <lastmod>2025-11-30T07:47:20+08:00</lastmod>
+    <lastmod>2026-01-25T07:47:20+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>

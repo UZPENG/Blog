@@ -6,7 +6,7 @@
     <description>Recent content in Linux on UZPENG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <copyright>© 2025 UZPENG</copyright>
+    <copyright>© 2026 UZPENG</copyright>
     <lastBuildDate>Sun, 02 Sep 2018 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
@@ -31,6 +31,10 @@
     &lt;/span&gt;
     
 &lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;历史博客已归档，关于web架构的解读和导读详情见&lt;a
+  href=&#34;http://localhost:1313/posts/talk_about_my_old_blog&#34;&gt;《漫谈博客来时路》&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;众所周知，在linux的世界里，一切皆文件。每一个进程都拥有一张文件描述符的表，指向文件、socket、硬件还有一些操作系统对象。&lt;/p&gt;
 &lt;p&gt;典型的拥有很多IO源的系统都会有一个初始化的阶段，然后进入待机模式——等待客户端请求并且响应。&lt;/p&gt;
 &lt;p&gt;最简单的解决方案就是为每一个客户端创建一个线程（或者进程），一直阻塞直到请求发送或者写入了响应。这种模式在客户端数量很小的时候可以工作，但是我们想要扩展到成千上万的客户端，为每个客户端创建线程（或者进程）是一个很糟糕的主意。&lt;/p&gt;
@@ -69,6 +73,10 @@
     &lt;/span&gt;
     
 &lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;历史博客已归档，关于编程武器的解读和导读详情见&lt;a
+  href=&#34;http://localhost:1313/posts/talk_about_my_old_blog&#34;&gt;《漫谈博客来时路》&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;记录一些linux的常用操作以便查询，暂时先记录，以后有时间再分门别类。&lt;/p&gt;</description>
       
     </item>
