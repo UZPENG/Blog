@@ -155,6 +155,16 @@
 
 
 
+  
+  
+  
+  
+  <script
+    defer
+    type="text/javascript"
+    src="/js/mermaid.bundle.62a05f6909b23ed64b2e8ec427722eeb4c8f952edc802d92004aa08e7f45a1597104d017ccecad9b537b159c079fb8af10c57c8083bada28caf5424da953eaa3.js"
+    integrity="sha512-YqBfaQmyPtZLLo7EJ3Iu60yPlS7cgC2SAEqgjn9FoVlxBNAXzOytm1N7FZwHn7ivEMV8gIO62ijK9UJNqVPqow=="></script>
+
 
 
 
@@ -225,7 +235,7 @@
     
     
     "mainEntityOfPage": "true",
-    "wordCount": "369"
+    "wordCount": "3456"
   }]
   </script>
 
@@ -631,7 +641,7 @@
   <div class="flex flex-row flex-wrap items-center">
     
     
-      <time datetime="2026-01-25T07:47:20&#43;08:00">2026-01-25</time><span class="px-2 text-primary-500">&middot;</span><span>369 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">1 分钟</span><span class="px-2 text-primary-500">&middot;</span>
+      <time datetime="2026-01-25T07:47:20&#43;08:00">2026-01-25</time><span class="px-2 text-primary-500">&middot;</span><span>3456 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">7 分钟</span><span class="px-2 text-primary-500">&middot;</span>
 
 
   
@@ -771,7 +781,31 @@
     <nav id="TableOfContents">
   <ul>
     <li><a href="#前言">前言</a></li>
-    <li><a href="#编程武器类">编程武器类</a></li>
+    <li><a href="#编程武器类">编程武器类</a>
+      <ul>
+        <li><a href="#关于git">关于git</a></li>
+        <li><a href="#软件的集锦">软件的集锦</a></li>
+        <li><a href="#linux的命令">Linux的命令</a></li>
+        <li><a href="#个人域名的邮箱">个人域名的邮箱</a></li>
+        <li><a href="#锐评">锐评</a></li>
+      </ul>
+    </li>
+    <li><a href="#web架构">web架构</a>
+      <ul>
+        <li><a href="#高性能">高性能</a></li>
+        <li><a href="#部署模式">部署模式</a></li>
+        <li><a href="#锐评-1">锐评</a></li>
+      </ul>
+    </li>
+    <li><a href="#爬虫">爬虫</a>
+      <ul>
+        <li><a href="#http协议">HTTP协议</a></li>
+        <li><a href="#web前端">web前端</a></li>
+        <li><a href="#scrapy">scrapy</a></li>
+        <li><a href="#锐评-2">锐评</a></li>
+      </ul>
+    </li>
+    <li><a href="#结语">结语</a></li>
   </ul>
 </nav>
   </div>
@@ -786,7 +820,31 @@
     <nav id="TableOfContents">
   <ul>
     <li><a href="#前言">前言</a></li>
-    <li><a href="#编程武器类">编程武器类</a></li>
+    <li><a href="#编程武器类">编程武器类</a>
+      <ul>
+        <li><a href="#关于git">关于git</a></li>
+        <li><a href="#软件的集锦">软件的集锦</a></li>
+        <li><a href="#linux的命令">Linux的命令</a></li>
+        <li><a href="#个人域名的邮箱">个人域名的邮箱</a></li>
+        <li><a href="#锐评">锐评</a></li>
+      </ul>
+    </li>
+    <li><a href="#web架构">web架构</a>
+      <ul>
+        <li><a href="#高性能">高性能</a></li>
+        <li><a href="#部署模式">部署模式</a></li>
+        <li><a href="#锐评-1">锐评</a></li>
+      </ul>
+    </li>
+    <li><a href="#爬虫">爬虫</a>
+      <ul>
+        <li><a href="#http协议">HTTP协议</a></li>
+        <li><a href="#web前端">web前端</a></li>
+        <li><a href="#scrapy">scrapy</a></li>
+        <li><a href="#锐评-2">锐评</a></li>
+      </ul>
+    </li>
+    <li><a href="#结语">结语</a></li>
   </ul>
 </nav>
   </div>
@@ -831,10 +889,325 @@
     
 </h2>
 <p><a
-  href="/posts/git">git怎样使用</a>、<a
-  href="/posts/software">软件的集锦</a>、<a
-  href="/posts/linux-command">Linux的命令</a>、<a
-  href="/posts/mail">个人域名的邮箱</a></p>
+  href="/posts/git"><u>git怎样使用</u></a>、<a
+  href="/posts/software"><u>软件的集锦</u></a>、<a
+  href="/posts/linux-command"><u>Linux的命令</u></a>、<a
+  href="/posts/mail"><u>个人域名的邮箱</u></a></p>
+
+<h3 class="relative group">关于git
+    <div id="关于git" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e5%85%b3%e4%ba%8egit" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<p>版本控制在程序开发甚至内容管理上面至关重要，<code>git</code> 就是其中的佼佼者，在 <code>vibe coding</code>的时代，<code>git</code> 依然这么重要，甚至更上一层楼。</p>
+<p>毕竟当AI 生成搞坏你的代码的时候，如何恢复特别重要。而 <code>git</code> 能够很好的解决这个问题。</p>
+<p>首先，<strong>在大模型时代，我认为学习一个知识，学习宏观层面的设计尤为重要，至于细枝末节，问大模型+manual勘查即可</strong>。</p>
+<p>因此，我们先总结下<code>git</code>的宏观设计:</p>
+<p><strong>逻辑区域的划分和状态转移</strong></p>
+<pre class="not-prose mermaid">
+stateDiagram-v2
+    [*] --> RemoteRepo: 初始化
+
+    state "Remote Repository</br>(远端仓库)" as RemoteRepo
+    state "Working Directory</br>(工作区)" as WorkSpace
+    state "Staging Area</br>(暂存区)" as Stage
+    state "Local Repository</br>(本地仓库)" as LocalRepo
+    state "Stash Stack</br>(储藏栈)" as Stash
+
+    RemoteRepo --> WorkSpace: git clone (克隆仓库)
+
+    WorkSpace --> Stage: git add (添加到暂存区)
+    Stage --> WorkSpace: git reset HEAD (撤销暂存)
+
+    Stage --> LocalRepo: git commit (提交)
+
+    LocalRepo --> WorkSpace: git checkout (检出/切换分支)
+    LocalRepo --> WorkSpace: git checkout -- file (丢弃修改)
+
+    LocalRepo --> RemoteRepo: git push (推送更新)
+    RemoteRepo --> LocalRepo: git fetch (获取更新)
+
+    RemoteRepo --> WorkSpace: git pull (拉取并合并)
+
+    %% Git Stash 相关
+    WorkSpace --> Stash: git stash (储藏当前修改)
+    Stash --> WorkSpace: git stash pop (恢复并删除储藏)
+
+    %% Git Revert 相关
+    LocalRepo --> LocalRepo: git revert (撤销提交并生成新提交)
+</pre>
+
+<blockquote>
+<p>git reset HEAD 中的 HEAD 是提交记录的引用，在此不再赘述，可通过AI检索更多引用的方式</p>
+</blockquote>
+<p><strong>本地仓库管理</strong></p>
+<p>以下是关于 Git 本地仓库管理中常用指令的说明表格：</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">指令</th>
+          <th style="text-align: left">核心作用</th>
+          <th style="text-align: left">命令参考</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><strong>Branch</strong></td>
+          <td style="text-align: left">创建独立的开发线路，实现并行开发。</td>
+          <td style="text-align: left"><code>git branch</code> (查看), <code>git checkout -b</code> (创建并切换)</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>Merge</strong></td>
+          <td style="text-align: left">将分支历史合并，保留完整提交记录（会有分叉）。</td>
+          <td style="text-align: left"><code>git merge &lt;branch-name&gt;</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>Rebase</strong></td>
+          <td style="text-align: left">变基，将提交移植到目标分支顶端，使历史线性化。</td>
+          <td style="text-align: left"><code>git rebase &lt;branch-name&gt;</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>Cherry-pick</strong></td>
+          <td style="text-align: left">拣选，将指定的某个提交单独应用到当前分支。</td>
+          <td style="text-align: left"><code>git cherry-pick &lt;commit-id&gt;</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>Reflog</strong></td>
+          <td style="text-align: left">引用日志，记录 HEAD 移动历史，用于找回误删数据。</td>
+          <td style="text-align: left"><code>git reflog</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>Tag</strong></td>
+          <td style="text-align: left">标记特定的发布版本节点（如 v1.0），通常不随代码变动。</td>
+          <td style="text-align: left"><code>git tag &lt;name&gt;</code>, <code>git push origin &lt;tag&gt;</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>Remote</strong></td>
+          <td style="text-align: left">管理远程仓库的连接别名（如 origin），实现本地与远端交互。</td>
+          <td style="text-align: left"><code>git remote -v</code> (查看), <code>git remote add</code> (添加)</td>
+      </tr>
+  </tbody>
+</table>
+<blockquote>
+<p>详细的用法不再赘述，使用AI问答结合实际项目多尝试即可体会其中的用处</p>
+</blockquote>
+<p><strong>其他</strong></p>
+<p>还有以下这些常用内容，仅作索引，详情可使用 <strong>大模型检索+manual勘误</strong>：</p>
+<ul>
+<li>在提交历史抹除指定内容(比如误提交了账号密码，需要在历史中抹除掉)</li>
+<li>配置<code>git</code>(用户名、邮箱、alias、proxy、统一换行符、LFS等)</li>
+<li><code>git hook</code>，Hook 就是可以在git的一些操作前后定义自己的逻辑，如：提交前自动格式化、合并时设置门禁检查等</li>
+<li><code>log</code> 查看历史；<code>diff</code> 对比不同commit的差异；<code>blame</code> 找到指定代码是谁最后改的；<code>merge</code>的冲突解决；以上这些都使用GUI的工具即可，<code>VSCode</code> 和 <code>IDEA全家桶</code>都有较好的支持</li>
+</ul>
+
+<h3 class="relative group">软件的集锦
+    <div id="软件的集锦" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e8%bd%af%e4%bb%b6%e7%9a%84%e9%9b%86%e9%94%a6" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<p>这个没啥好说的，典型的大模型秒杀场景，现在直接根据使用场景问大模型即可，免费、开源、付费的都有</p>
+<p>结合我们的思路，在Agentic时代，包管理工具也有广阔的空间，Windows现在也有 <code>choco</code> 了</p>
+<p>不过话说回来，虽然包管理好用，但是有些时候我们还是需要自己编译的，所以掌握开源软件的编译也很重要</p>
+
+<h3 class="relative group">Linux的命令
+    <div id="linux的命令" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#linux%e7%9a%84%e5%91%bd%e4%bb%a4" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<p>这个也是大模型秒杀的场景，最佳实践：<strong>问大模型+manual勘误+自己多尝试</strong></p>
+
+<h3 class="relative group">个人域名的邮箱
+    <div id="个人域名的邮箱" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e4%b8%aa%e4%ba%ba%e5%9f%9f%e5%90%8d%e7%9a%84%e9%82%ae%e7%ae%b1" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<p>这个现在也不用自己搞这么麻烦了，找云厂商注册域名，备案域名，绑定一些三方邮箱即可</p>
+<p><strong>云厂商是个很好的练兵场，花小钱可以学习和体验各种技术，新人还是有必要的，一定要花这笔费用</strong></p>
+
+<h3 class="relative group">锐评
+    <div id="锐评" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e9%94%90%e8%af%84" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<ol>
+<li>一定要学会用命令行，多敲敲git的命令，从根本上掌握的git的设计</li>
+<li>最高效的方式就是命令行+GUI结合。命令行适合自动化，Agentic 时代更加重要；GUI适合人工介入，对人为操作更友好</li>
+<li><strong>在大模型时代，我认为学习一个知识，学习宏观层面的设计尤为重要，至于细枝末节，问大模型+manual勘误即可</strong></li>
+</ol>
+
+<h2 class="relative group">web架构
+    <div id="web架构" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#web%e6%9e%b6%e6%9e%84" aria-label="锚点">#</a>
+    </span>
+    
+</h2>
+<p><a
+  href="/posts/concurrent"><u>Java并发编程入门</u></a>、<a
+  href="/posts/deploy-doc"><u>Ngnix+Tomcat+MySQL项目部署</u></a>、<a
+  href="/posts/io-multiplexing"><u>Linux-IO多路复用-SELECT/POLL/EPOLL</u></a></p>
+
+<h3 class="relative group">高性能
+    <div id="高性能" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e9%ab%98%e6%80%a7%e8%83%bd" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<ol>
+<li>首先IO多路复用时至今日，仍然是重要的技术，<strong>批量+主动提醒是其核心的优势</strong>。
+另外这些函数都是系统调用，也就是说如果你使用的语言比较高级，你得查查对应的IO API的底层是什么模式。</li>
+<li>并发编程旧博文理论太多了。用当前的眼光看：Java并发编程去学习<code>Akka</code>，学习什么是 <code>Actor 模式</code>; 去学习并发编程包的API，多使用现代的并发抽象源语
+另外Golang的<code>CSP 模式</code>也值得学习，那句 <strong>不要通过共享内存来通信，而要通过通信来共享内存</strong>颇具哲学意味。</li>
+</ol>
+
+<h3 class="relative group">部署模式
+    <div id="部署模式" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e9%83%a8%e7%bd%b2%e6%a8%a1%e5%bc%8f" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<ol>
+<li>独立Tomcat容器早已淘汰，拥抱<code>Spring Boot</code>吧</li>
+<li>Nginx基于IO多路复用，依旧是Web的核心组件</li>
+<li>裸机部署已过时，现在是成熟的容器化时代，docker+k8s是主流。伴随k8s生态的还有：CI/CD（持续集成，持续发布）、日志监控（ELK+grafana）、告警（Prometheus）、自动扩缩容、健康检查</li>
+<li>关于docker和k8s又是长篇大论，就不在这里展开了，学习的时候，记得遵循<strong>先学习宏观层面的设计，至于细枝末节，问大模型+manual勘误即可</strong></li>
+</ol>
+
+<h3 class="relative group">锐评
+    <div id="锐评-1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e9%94%90%e8%af%84-1" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<ol>
+<li>多实践，多尝试，拒绝只看理论。AI大模型时代，生成代码触手可及，带着自己的想法在vibe coding 中学习，比干巴巴的理论有趣多了呢</li>
+<li>架构变化的核心思想还是KISS（Keep It Stupid Simple），人能理解的内容是有限的，所以我们要<strong>自动化、可重复、可观测、可追踪</strong></li>
+</ol>
+
+<h2 class="relative group">爬虫
+    <div id="爬虫" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e7%88%ac%e8%99%ab" aria-label="锚点">#</a>
+    </span>
+    
+</h2>
+<p><a
+  href="/posts/crawl"><u>爬虫实践&ndash;淘数据网站的数据爬取和存储</u></a>、<a
+  href="/posts/scrapy"><u>scrapy+selenium+headless-chrome</u></a></p>
+
+<h3 class="relative group">HTTP协议
+    <div id="http协议" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#http%e5%8d%8f%e8%ae%ae" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<ol>
+<li>爬虫本质上就是构造对应的网络请求去获取对应的网络相应内容。至于如何构造，那就是对应协议的细节了，因此HTTP协议的设计是需要掌握的</li>
+<li>HTTP协议关键概念：URL的组成和含义、请求方法、HTTP版本、请求HEADER、请求体、响应码、响应HEADER、响应体</li>
+<li>相关知识有：REST API设计、常用HEADER及其的含义</li>
+<li>HTTP版本有1.0、1.1、2.0、3.0，相关细节查对应RFC即可</li>
+<li><strong>抽象的概念特别重要，编程大多数的时候都是现有抽象的设计，然后再编码来建模，如果你不懂抽象的概念，也就不会理解相应的API设计</strong></li>
+<li>你问协议为啥是这样设计的？所谓协议就是彼此协商好的通信规则。特别是浏览器，就个是按web规范实现的客户端，所以当你按照web规范实现接口时，浏览器就能进行解析和渲染。</li>
+</ol>
+
+<h3 class="relative group">web前端
+    <div id="web前端" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#web%e5%89%8d%e7%ab%af" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<ol>
+<li>毕竟很多内容都是通过web浏览器承载的，所以学习一些浏览器知识也很有帮助的。</li>
+<li>比如：cookie / localstorage / session / xpath / css selector / DOM / HTML</li>
+<li>浏览器自动化目前使用 <code>playwright</code>，API简洁且有方便的等待机制，比 <code>selenium</code> 写起来舒服多了</li>
+</ol>
+
+<h3 class="relative group">scrapy
+    <div id="scrapy" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#scrapy" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<ol>
+<li>这个也不深入讲了，涉及到比较多Python的知识，核心流程就是：请求、响应、数据处理、入库</li>
+</ol>
+
+<h3 class="relative group">锐评
+    <div id="锐评-2" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e9%94%90%e8%af%84-2" aria-label="锚点">#</a>
+    </span>
+    
+</h3>
+<ol>
+<li>感慨时光易逝呀，以前的淘数据网站现在都已经404了</li>
+<li>反爬和反反爬内容也很多，也不再赘述，给点关键词吧：浏览器自动化、JS加解密、cloudfare金盾等等</li>
+<li><strong>爬虫还是挺有意思的，能够激发新人学习的兴趣，配上浏览器自动化，享受vibe coding吧</strong></li>
+</ol>
+
+<h2 class="relative group">结语
+    <div id="结语" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e7%bb%93%e8%af%ad" aria-label="锚点">#</a>
+    </span>
+    
+</h2>
+<p>在这里，旧博客的复盘就结束了。</p>
+<p>很显然，内容不多，也比较简单，细节的内容大模型基本都能够很好地替代。</p>
+<p>不过在这个过程中，还是有几个新的体会值得参考的：</p>
+<ol>
+<li><strong>在大模型时代，我认为学习一个知识，学习宏观层面的设计尤为重要，至于细枝末节，问大模型+manual勘误即可</strong></li>
+<li><strong>抽象的概念特别重要，编程大多数的时候都是现有抽象的设计，然后再编码来建模，如果你不懂抽象的概念，也就不会理解相应的API设计</strong></li>
+<li><strong>AI大模型时代，生成代码触手可及，带着自己的想法在vibe coding 中学习，比干巴巴的理论有趣多了呢</strong></li>
+<li><strong>KISS（Keep It Stupid Simple），人能理解的内容是有限的，所以我们要自动化、可重复、可观测、可追踪</strong></li>
+</ol>
+<p>共勉</p>
 
           
           
