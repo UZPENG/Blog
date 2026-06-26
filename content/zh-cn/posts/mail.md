@@ -3,6 +3,8 @@ title: postfix+dovecot搭建自己的邮件服务器
 date: 2018-03-06
 tags:
 - 网络
+categories:
+  - "技术博客"
 ---
  
 

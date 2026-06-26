@@ -11,6 +11,7 @@
 ## 核心架构
 
 - **主题**: Blowfish，作为 git 子模块安装在 `themes/blowfish`，指向 fork 仓库（`UZPENG/blowfish`）。克隆时需使用 `--recursive` 或执行 `git submodule update --init --recursive`。
+- **主题文件禁止修改**: 不得修改 `themes/blowfish/` 下的任何文件，除非用户明确授权。
 - **配置**: TOML 格式，位于 `config/_default/`。主配置文件为 `hugo.toml`。
 - **内容语言**: 中文（`zh-cn`），所有内容位于 `content/zh-cn/` 下。
   - `posts/` — 博客文章

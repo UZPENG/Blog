@@ -4,6 +4,8 @@ date: 2025-11-28T23:04:01+08:00
 draft: false
 weight: 30
 sticky: true
+categories:
+  - "技术博客"
 ---
 ## 为什么一直没有更新博客
 

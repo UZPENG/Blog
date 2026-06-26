@@ -3,6 +3,8 @@ title: Ngnix+Tomcat+MySQL项目部署
 date: 2018-06-20
 tags:
 - 后端
+categories:
+  - "技术博客"
 ---
 # 前言
 

@@ -1,0 +1,10 @@
+article section.prose a {
+  color: #0369a1 !important;
+  text-decoration: underline !important;
+  text-decoration-thickness: 2px !important;
+  text-underline-offset: 3px !important;
+  font-weight: 600 !important;
+}
+article section.prose a:hover {
+  color: #0284c7 !important;
+}

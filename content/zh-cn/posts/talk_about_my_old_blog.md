@@ -4,6 +4,8 @@ date: 2026-01-25T07:47:20+08:00
 draft: false
 weight: 20
 sticky: true
+categories:
+  - "技术博客"
 ---
 
 ## 前言

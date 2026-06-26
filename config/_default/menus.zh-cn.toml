@@ -11,15 +11,15 @@
 # ordered by weight from lowest to highest.
 
 [[main]]
-name = "博客"
-pageRef = "posts"
+name = "技术博客"
+url = "/categories/技术博客"
 weight = 1
 
 # [[main]]
 # identifier = "resume"
 # name = "简历"
 # pageRef = "resume"
-# weight = 2
+# weight = 3
 
 # [[main]]
 # name = "友链"
@@ -31,7 +31,4 @@ weight = 1
 # the copyright notice. Configure as per the main menu above.
 
 
-[[footer]]
-name = "标签"
-pageRef = "tags"
-weight = 1
+

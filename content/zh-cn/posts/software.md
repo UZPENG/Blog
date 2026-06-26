@@ -3,6 +3,8 @@ title: 常用软件汇总
 date: 2018-08-01
 tags:
 - cheatsheet
+categories:
+  - "技术博客"
 ---
 
 # 常用软件汇总

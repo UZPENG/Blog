@@ -3,6 +3,8 @@ title: Linux-IO多路复用-SELECT/POLL/EPOLL
 date: 2018-09-02
 tags:
 - linux
+categories:
+  - "技术博客"
 ---
 
 > 本文翻译自`DEVELPERS AREA`的[LINUX – IO MULTIPLEXING – SELECT VS POLL VS EPOLL](http://devarea.com/linux-io-multiplexing-select-vs-poll-vs-epoll)

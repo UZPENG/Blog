@@ -2,6 +2,8 @@
 title: 我的博客之旅
 date: 2017-03-04T19:31:34+08:00
 tags:
+categories:
+  - "技术博客"
 ---
 
 > V2版本已发布，详情见[《重启博客杂谈》](/posts/restart_blog)

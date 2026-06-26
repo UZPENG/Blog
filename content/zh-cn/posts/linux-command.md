@@ -3,6 +3,8 @@ title: linux常用命令速查
 date: 2018-08-22
 tags:
 - linux
+categories:
+  - "技术博客"
 ---
 # 前言
 
